@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>문제 : radio버튼 이미지 변경</title>
+<style>
+	.high-light {
+		background : yellow;
+	}
+</style>
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+ <script>
+ 	$(document).ready(function () {
+ 		setTimeout(function () {
+ 			const checking = $("input:checked").val();
+ 			alert(checking);
+ 			$("img").attr("src",checking);
+ 		}, 3000)
+ 	})
+ </script>
+</head>
+<body>
+	<h3>선택한 그림 출력</h3>
+	<hr>
+	<div>radio 버튼을 클릭하면 이미지가 바뀐다.</div>
+	<form>
+		<label><input type="radio" name="icon" value="../image/smile.png">smile</label>
+		<label><input type="radio" name="icon" value="../image/cat.png">cat</label>
+		<label><input type="radio" name="icon" value="../image/fish.png">fish</label>
+		
+		<img src="../image/cat.png">
+	</form>
+</body>
+</html>

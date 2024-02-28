@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>선택자 practice</title>
+<script src="../js/jquery-3.7.1.js"></script>
+<script>
+	
+	let answer = prompt("변경할 색상을 입력하세요");
+
+	$(function() {
+		$("#target").css("color",answer);
+	});
+	
+</script>
+</head>
+<body>
+	<h1>Header-0</h1>
+	<h1 id="target">"#target":카멜레온</h1>
+	<h1>Header-2</h1>
+</body>
+</html>
+

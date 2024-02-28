@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+		#books caption {font-size:25px;
+						font-weight: bold;
+						margin : 0.2em;
+						color : green;}
+						
+		/*
+			table-layout 속성 : auto (각 열의 크기를 자동으로 계산 - 기본값)
+		*/
+		
+		
+		#books {border-collapse:collapse;
+				width : 250px;
+				margin:0 auto;
+				text-align:center}
+		
+		td {border-bottom:1px solid gray;
+			height:2em;}
+		
+		th {border-bottom:1px solid gray;
+			height:2em;}
+		
+		tbody tr:hover {background:yellow}
+</style>
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+ <script>
+	$(document).ready(function () {
+		$("tbody").append($("tbody>tr:first").clone());
+	});
+ </script>
+</head>
+<body>
+	<table id=books>
+	<caption>append - 이동</caption>
+		<thead>
+			<tr>
+				<td>번호</td>
+				<td>이름</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>홍길동</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>이순신</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>손오공</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>저팔계</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>사오정</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

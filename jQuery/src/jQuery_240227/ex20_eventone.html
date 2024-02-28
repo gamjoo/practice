@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+ <script>
+ 	$(document).ready(function () {
+ 		let count=0;
+ 		//이벤트를 연결한다.
+ 		//click() 메소드 사용
+ 		$("div").one("click", function () {
+ 			//this : 이벤트가 발생한 객체
+ 			$(this).html(function (index, html) {
+ 				//return "<mark>이벤트가 발생했습니다.</mark>" + count++;
+ 				return `<mark>이벤트가 발생했습니다.</mark> ${count++}`
+ 			});
+ 		});
+ 	});
+ </script>
+</head>
+<body>
+	<div>월요일</div>
+	<div>화요일</div>
+	<div>수요일</div>
+</body>
+</html>

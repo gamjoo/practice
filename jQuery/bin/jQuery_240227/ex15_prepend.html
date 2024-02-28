@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+table {width:500px;
+	   border-collapse:collapse;
+	   text-align:center;}
+	   
+
+</style>
+ <!-- 문서 객체 삽입 -->
+ <!-- $(A).append(B) : B를 A의 맨 처음 자식에 추가한다 -->
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+ <script>
+	$(document).ready(function () {
+		const h1 = "<h1>화요일</h1>";
+		const h2 = "<h1>수요일</h1>";
+		const h3 = "<h1>월요일</h1>"
+		
+		//h1,h2를 div 태그의 마지막 자식에 추가한다
+		$("div").append(h1, h2);
+		
+		//h3를 div 태그 맨 처음 자식에 추가한다.
+		$("div").prepend(h3);
+	});
+ </script>
+</head>
+<body>
+	<div>내 뒤에 붙거라</div>
+</body>
+</html>

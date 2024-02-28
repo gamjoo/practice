@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>트리거 시작/종료</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<style>
+input[type=button] {
+	border-style : none;
+	width : 100px;
+	height : 50px;
+	color : white;
+	background-color : grey;
+}
+
+#start {
+	background-color : green;
+}
+
+
+</style>
+<script>
+	$(document).ready(function () {
+		$("h1").click(function () {
+			$(this).html(function (index, html) {
+				return `${html}★`
+			});
+		});
+		
+		
+		$("#start").click(function() {
+			timer = setInterval(function () {
+			$("h1:last").trigger("click");
+			}, 1000);
+			$("#start").val("시작중.....");
+			$("input:first").css("background-color", "grey");
+			$("#end").css("background-color", "red");
+		});	//타이머 시작
+		
+		
+		$("#end").click(function() {
+			clearInterval(timer); //타이머 종료
+			$("input:last").css("background-color", "grey");
+			$("input:eq(0)").val("트리거 시작");
+			$("#start").css("background-color", "green");
+		})
+	})
+</script>
+</head>
+<body>
+	<h1>Start:</h1>
+	<h1>Start:</h1>
+	<input type="button" value="트리거 시작" id="start">
+	<input type="button" value="트리거 종료" id="end">
+</body>
+</html>

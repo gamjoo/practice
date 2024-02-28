@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+ <!--
+ 	문서 객체의 내부 추가 - html() 메소드
+ 	html()메소드에서 사용된 함수의 2번째 매개변수 html은 index위치에 해당하는 요소의 내용이다
+ -->
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+ <script>
+	$(document).ready(function () {
+		$("h1").html(function (index, html) {
+			console.log(`index=${index} 내용=${html}`);
+//			console.log("index="+index+" 내용=" + html);
+		})
+	});
+ </script>
+</head>
+<body>
+	<h1>월요일</h1>
+	<h1>화요일</h1>
+	<h1>수요일</h1>
+</body>
+</html>
