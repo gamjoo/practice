@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>문서 객체 선택과 탐색(xml 문서 find로 찾기)-parent메소드</title>
+ <style>
+body * {display : block;
+		border : 2px solid lightgrey;
+		color : lightgrey;
+		padding : 5px;
+		margin : 15px}
+ </style>
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+ <script>
+	$(document).ready(function () {
+		$("span").parent().css({"color" : "red", "border" : "2px solid red"})
+	})
+ </script>
+</head>
+<body class="ancestors">body (great-great-grandparent)
+	<div style="width:500px">div (great-grandparent)
+		<ul>ul (grandparent)
+			<li>li (direct parent)
+				<span>span - 나</span>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

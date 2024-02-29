@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+ <!-- 
+ 		attr() 메소드
+ 		1. $(selector).attr(name);
+ 		2. $(selector).attr(name, value);
+ 		3. $(selector).attr(name, function(index, attr){});
+ 		
+ 		jQuery 위치 필터 선택자
+ 		요소:eq(n) => 선택한 요소의 인덱스 번호에 해당하는 문서 객체를 선택한다.
+  -->
+ <script>
+	$(document).ready(function () {
+			console.log($("img:eq(0)").attr("src"));
+			console.log($("img:eq(1)").attr("src"));
+			console.log($("img:eq(2)").attr("src"));
+	})
+ </script>
+</head>
+<body>
+	<img src="../image/smile.png" alt="smile.png">
+	<img src="../image/cat.png" alt="cat.png">
+	<img src="../image/lemon.png" alt="lemon.png">
+</body>
+</html>
