@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Form handling with JavaScript</title>
+	<link href="css/ex02061.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<h2>서적 주문 양식</h2>
+	<form action="result.html" method="get">
+		<!-- 입력할 때마다 변경된다 -->
+		<table>
+			<tr>
+				<th>책 제목</th>
+				<th>가격</th>
+				<th>수량</th>
+				<th>합계</th>
+			</tr>
+			<tr>
+				<td>4차 산업</td>
+				<td class="price">30,000원</td>
+				<td><input id="book1" type="text" size="2" value="0"
+						   onclick="this.select();"></td>
+				<!-- 이벤트 핸들러를 직접 기술하여 등록방식
+					 this.select()는 각 서적 수량을 표시하는 텍스트 박스를
+					 클릭하면 그 값이 선택되도록 하는 기능을 갖는다
+					 this는 <input>요소의 DOM을 가리키게 된다.
+					 즉, 자신이 속한 DOM을 가리킨다. -->
+				<td><input id="book1Total" type="text" size="6" value="0" readOnly>원</td>
+			</tr>
+			<tr>
+				<td>다이어트</td>
+				<td class="price">27,000원</td>
+				<td><input id="book2" type="text" size="2" value="0"
+						   onclick="this.select();"></td>
+				<td><input id="book2Total" type="text" size="6" value="0" readOnly>원</td>
+			</tr>
+			<tr>
+				<td>윤식당</td>
+				<td class="price">25,000원</td>
+				<td><input id="book3" type="text" size="2" value="0"
+						   onclick="this.select();"></td>
+				<td><input id="book3Total" type="text" size="6" value="0" readOnly>원</td>
+			</tr>
+			<tr>
+				<td>합계</td>
+				<td>&nbsp;</td>
+				<td><input id="totalNumber" type="text" size="2" value="0" readOnly></td>
+				<td><input id="totalPrice" type="text" size="6" value="0" readOnly>원</td>
+			</tr>
+		</table>
+		<br>
+		
+		<input type="reset" value="초기화">
+		<input type="submit" value="제출">
+	</form>
+<script>
+function updateAll() {
+	//각 가격 구하기
+	var prices = document.getElementsByClassName("price")
+	var book1Price = parseInt(prices[0].textContent.replace(/,|원/g, ""));
+	var book2Price = parseInt(prices[1].textContent.replace(/,|원/g, ""));
+	var book3Price = parseInt(prices[2].textContent.replace(/,|원/g, ""));
+	
+	//입력한 수량 구하기
+	var book1Quantity = parseInt(document.getElementById("book1").value);
+	var book2Quantity = parseInt(document.getElementById("book2").value);
+	var book3Quantity = parseInt(document.getElementById("book3").value);
+	
+	//수량 별 합계 구하기
+	var book1Total = book1Quantity * book1Price;
+	var book2Total = book2Quantity * book2Price;
+	var book3Total = book3Quantity * book3Price;
+	
+	//수량 별 합계 표시 - 세자리 마다 콤마 작성
+	document.getElementById("book1Total").value = book1Total.toLocaleString();
+	document.getElementById("book2Total").value = book2Total.toLocaleString();
+	document.getElementById("book3Total").value = book3Total.toLocaleString();
+	
+	//총 수량 계산
+	var totalNumber = book1Quantity + book2Quantity + book3Quantity;
+	
+	//총 수량 표시 - 세자리 마다 콤마 작성
+	document.getElementById("totalNumber").value = totalNumber.toLocaleString();
+	
+	//총 합계 계산
+	var totalPrice = book1Total + book2Total + book3Total;
+	
+	//총 합계 표시 - 세자리 마다 콤마 작성
+	document.getElementById("totalPrice").value = totalPrice.toLocaleString();
+}//function end	
+	
+	document.getElementsByTagName("form")[0].addEventListener('input', updateAll);
+
+/*	
+function updateAll () {
+    var book1 = document.getElementById("book1")
+	var book1Total = document.getElementById("book1Total")
+	book1Total.value = (Number(book1.value) * 30000).toLocaleString();
+	
+	var book2 = document.getElementById("book2")
+	var book2Total = document.getElementById("book2Total")
+	book2Total.value = (Number(book2.value) * 27000).toLocaleString();
+	
+	var book3 = document.getElementById("book3")
+	var book3Total = document.getElementById("book3Total")
+	book3Total.value = (Number(book3.value) * 25000).toLocaleString();
+	
+	var totalNumber = document.getElementById("totalNumber")
+	var totalPrice = document.getElementById("totalPrice")
+	totalNumber.value = Number(book1.value) + Number(book2.value) + Number(book3.value)
+	totalPrice.value = (Number(book1.value) * 30000 + Number(book2.value) * 27000 + Number(book3.value) * 25000).toLocaleString();
+
+} //function end
+	
+//	document.getElementsByTagName('form')[0].addEventListener('input', updateAll);
+*/
+
+/* [지훈씨가 보내주신 코드1]
+function updateAll () {
+	    let totalNumber = document.getElementById('totalNumber');
+	    let totalPrice = document.getElementById('totalPrice');
+	    function updateAll() {
+	        for(var i = 0; i < 3; i++) {
+	            var book = document.getElementById('book'+Number(i+1));
+	            var bookTotal = document.getElementById('book'+Number(i+1)+'Total');
+	            var price = document.getElementsByClassName("price")[i].textContent;
+	            price = price.replace(/,|원/g, "");
+	            var input = document.getElementsByTagName('input');
+	            //input[i].addEventListener('select', inputEvent);
+	            bookTotal.value = Number(book.value) * Number(price);
+	        }
+	        totalNumber.value += Number(totalNumber.value) + Number(book.value);
+	        totalPrice.value  += Number(totalPrice.value) + Number(bookTotal.value);
+} // function end
+
+	    document.getElementsByTagName('form')[0].addEventListener('input', updateAll);
+
+
+[지훈씨가 보내주신 코드2]
+function updateAll() {
+	    let totalNumber = document.getElementById('totalNumber');
+	    let totalPrice = document.getElementById('totalPrice');
+	    function updateAll() {
+	        var num = 0;
+	        var total = 0;
+	        for(var i = 0; i < 3; i++) {
+	            var book = document.getElementById('book'+Number(i+1));
+	            var bookTotal = document.getElementById('book'+Number(i+1)+'Total');
+	            var price = document.getElementsByClassName("price")[i].textContent;
+	            price = price.replace(/,|원/g, "");
+	            var input = document.getElementsByTagName('input');
+	            //input[i].addEventListener('select', inputEvent);
+	            bookTotal.value = Number(book.value) * Number(price);
+	            num += Number(book.value);
+	            total += Number(bookTotal.value);
+	        }
+	        totalNumber.value = 0; totalPrice.value  = 0; 
+	        totalNumber.value = num; totalPrice.value  = total;
+} // function end
+
+	    document.getElementsByTagName('form')[0].addEventListener('input', updateAll);
+*/	
+</script>
+</body>
+</html>

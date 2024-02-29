@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script>
+	/*	
+		형식 : open(URL, name, option)
+		URL : 팝업창으로 보여줄 문서
+		name : 팝업창의 이름(특별한 이름 : _blank, _self ..)
+		option : 옵션 (하나의 문자열안에 콤마로 속성들을 구분해서 작성)
+		
+		옵션이름			설명						입력가능값
+		width			새 윈도우 너비				픽셀 값
+		height			새 윈도우 높이				픽셀 값
+		menubar			메뉴 유무					yes / no
+		resizable		화면 크기 조절 가능 유무		yes / no
+		location		주소 입력창 유무				yes / no
+	*/
+		var child = window.open("ex01_dom_delete.html",
+	"_blank", "width=300, height=200, menubar=no, " 
+	+ "status=yes, resizable=no, location=yes");
+	//_self : 현재 페이지에서 열린다.
+	//_blank : 새창에서 열린다 (기본)
+</script>
+</head>
+<body>
+</body>
+</html>
