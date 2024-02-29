@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트전달</title>
+<script src="../js/jquery-3.7.1.js"></script>
+<script>
+	$(document).ready(function () {
+		$("a").click(function (event) {
+			$(this).css("background-color", "blue");
+			event.preventDefault(); //a태그 기본 이벤트 제거
+			
+			//a태그 클릭하면 이벤트 전달이 일어나지 않는다.
+			event.stopPropagation(); //a태그 선택시 div태그의 이벤트 전달을 제거한다.
+		});
+		
+		$("div").click(function () {
+			$(this).css("background-color", "orange");
+		});
+	});
+</script>
+</head>
+<body>
+	<div>
+	 	<a href="4-07(trigger()-이벤트 강제 발생)1_1.html">트리거 예제</a>	 div 태그
+	</div>
+</body>
+</html>

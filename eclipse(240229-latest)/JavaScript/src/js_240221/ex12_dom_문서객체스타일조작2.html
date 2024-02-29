@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<script>
+		window.onclick = function () {
+			//문서 객체를 가져온다
+			var header = document.getElementById("header");
+			
+			//CSS에서의 속성처럼 사용할 경우는 []사용
+			header.style["border"] = "2px solid black";
+			header.style["color"] = "orange";
+			header.style["background-color"] = "red";
+			header.style["font-family"] = "굴림";
+		};
+	</script>
+</head>
+<body>
+  <h1 id="header">Header</h1>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>display : none 응용문제</title>
+	<style>
+			
+		span {
+			display:none;
+			border:5px dotted orange;
+			background-color:pink;
+			width:500px;
+			height:100px;
+			box-sizing:border-box;
+			padding:35px;
+			text-align:center;	 /*가로 정렬 : 가운데*/
+			}
+
+		div:hover + span {display:block}
+		
+	</style>
+</head>
+<body>
+  <div>여기에 커서를 갖다 놓으세요</div>
+  <span>나는 보여요</span> 
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>라벨</title>
+</head>
+<body>
+	<p>라벨의 텍스트를 클릭해도 된다.
+		label태그의 for속성값과 input태그의 id속성값이 같으면
+		라벨의 텍스트를 클릭해도 선택이 가능하다.
+	</p>
+	<form method="get" action="result.html">
+			성별 : &nbsp;
+		<label>남성
+			<input type=radio name="gender" value=male checked>
+		</label>
+		
+		<label>여성
+			<input type=radio name=gender value=female>
+		</label>
+		<br>
+		<hr>
+		
+		<input type=submit value=전송>
+		<input type=reset value=취소>
+	</form>
+</body>
+</html>

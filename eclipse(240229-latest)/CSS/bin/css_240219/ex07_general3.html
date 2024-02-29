@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>일반 구조 선택자</title>
+<style>
+	.box {
+		width : 100px;
+		height : 100px;
+	}
+
+	.box:nth-child(3n+1) { /*클래스 box가 1, 4, 7 .. 자식인 태그 선택*/ 
+		background-color : red;			   
+	}
+	
+	.box:nth-child(3n+2) { /*클래스 box가 2, 5, 8 .. 자식인 태그 선택*/
+		background-color : green;
+	}
+	
+	.box:nth-child(3n) { /*클래스 box가 3, 6, 9 ... 자식인 태그 선택*/
+		background-color : blue;
+	}
+</style>
+</head>
+<body>
+	<div class=box></div>
+	<div class=box></div>
+	<div class=box></div>
+	<div class=box></div>
+	<div class=box></div>
+	<div class=box></div>
+	<div class=box></div>
+	<div class=box></div>
+	<div class=box></div>
+	<div class=box></div>
+	<div class=box></div>
+	<div class=box></div>
+</body>
+</html>

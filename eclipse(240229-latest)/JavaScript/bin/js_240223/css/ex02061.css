@@ -1,0 +1,39 @@
+* {
+	text-align : center;
+	font-size : 25px;
+}
+
+table {
+	margin : 0 auto;
+	width : 700px;
+}
+
+td:first-child {
+	background : yellow;
+}
+
+tr:last-child {
+	background : green;
+}
+
+tr:last-child td:first-child {
+	background : white;
+}
+
+table, th, td {
+	border : 1px solid gray
+}
+
+
+#book1:focus, #book2:focus, #book3:focus {
+	outline : none;
+	border : 2px solid red;
+}
+
+td:nth-child(4) input:focus, #totalNumber:focus {
+	outline : none;
+}
+
+
+
+

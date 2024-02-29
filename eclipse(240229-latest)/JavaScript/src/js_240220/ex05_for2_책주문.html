@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>for문-책주문</title>
+	<style>
+	
+		#books caption {font-size:25px;
+						font-weight: bold;
+						margin: 0.5em }
+						
+		/*
+			table-layout 속성 : auto (각 열의 크기를 자동으로 계산 - 기본값)
+		*/
+		
+		
+		#books {
+				border-collapse:collapse;
+				width : 500px;
+				margin:0 auto;
+				text-align:center
+				}
+		
+		td {
+			border-bottom:1px solid gray; height:2em;
+			}
+		
+		th { background:gray;
+			 color:white;
+			 height:2em;}
+		
+		
+		tbody tr:hover {background:yellow}
+
+	</style>
+</head>
+
+<body>
+<script>
+	var book1 = "자바스크립트";
+	var book2 = "HTML";
+	var book3 = "CSS";
+	
+	var num1 = Number(prompt("주문할 책 수량을 입력하세요?", 1));
+	var num3 = null;
+	
+	var list = "<table id=books>";
+	list += "<caption> 책 주문 입력 내용 <caption>";
+	list += "<thead>";
+	list += "<tr>";
+	list += "<th> 순번 </th>";
+	list += "<th> 제목 </th>";
+	list += "</tr>";
+	list += "</thead>";
+	list += "<tbody>";
+	
+	for (var i = 1; i<=num1; i++) {
+		
+		var num2 = prompt("책 제목을 번호로 선택하세요...\n 1.자바스크립트 \n 2.HTML \n 3.CSS", 1);
+		
+		switch (num2) {
+		case "1" : num3 = book1;
+		case "2" : num3 = book2;
+		case "3" : num3 = book3;
+		default : {
+			alert("리스트에 없는 책을 선택하셨습니다.");
+			i--
+			continue;
+		}	
+		}
+	list +=	"<tr> <td>"+ i + "</td> <td> " + num3 + "</td> </tr>"
+	}
+		
+	list += "</tbody>";
+	list += "</table>";
+	
+	
+	document.body.innerHTML += list;
+	
+	
+
+</script>
+
+</body>
+</html>

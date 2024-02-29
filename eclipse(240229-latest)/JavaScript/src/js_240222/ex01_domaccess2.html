@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<script>
+		window.onclick = function () {
+			var dom = document.getElementById("username");
+			
+			alert(dom.value);
+			
+			var answer = prompt("이름을 입력하세요");
+			//dom.value에 newValue변수값을 대입함으로써
+			//<input>요소의 value속성 값을 변경할 수 있다.
+			username.value = answer;
+			username.style.backgroundColor = "yellow";
+			username.style.color = "red";
+			username.style["font-size"] = "3em";
+			username.style.width = "4em";
+		}
+	</script>
+</head>
+<body>
+	이름 : <input id="username" type="text" value="사용자의 이름은?">
+</body>
+</html>
+

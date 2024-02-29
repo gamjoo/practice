@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>모든 체크박스 선택/해제</title>
+</head>
+<body>
+	<div> 모든 체크박스 선택/해제 (checked 속성 이용하기)</div>
+	<hr>
+	<form>
+		<label><input type="checkbox" name="all" value="모두 선택/해제">all</label><br>
+		<label><input type="checkbox" name="icon" value="../iamge/music.png">image1</label><br>
+		<label><input type="checkbox" name="icon" value="../iamge/call.png">image2</label><br>
+		<label><input type="checkbox" name="icon" value="../iamge/sharp.png">image3</label><br>
+	</form>
+	
+	<script>
+		var all = document.querySelector("input[name=all]");
+		all.addEventListener("click", show);
+		
+		function show() {
+		var icon = document.querySelectorAll("input[name=icon]");
+		
+				for (var i=0; i<icon.length; i++) {
+					console.log(this.checked);
+					icon[i].checked = this.checked;
+				}
+		}	
+	</script>
+</body>
+</html>

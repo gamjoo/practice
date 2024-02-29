@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>매개변수3개-on메소드</title>
+<script src="../js/jquery-3.7.1.js"></script>
+<!-- 매개변수 2개인 on()메소드 -->
+<!-- 추가된 p태그는 클릭해도 이벤트가 발생하지 않는다
+	 새로 생긴 p태그는 이벤트 등록이 되어있지 않기 때문이다. -->
+<script>
+	$(document).ready(function () {
+		let count=0;
+		$("p").on("click", function () {
+			//after() : 선택자의 다음 형제위치에 추가한다
+			$(this).after(`<p> 추가된 paragraph! ${count++} </p>`);
+		});
+	});
+</script>
+</head>
+<body>
+	<p>Click me!</p>
+	<span>end</span>
+</body>
+</html>

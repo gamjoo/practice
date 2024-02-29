@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>선택자 practice</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<!-- item 또는 select 클래스를 가지는 태그 선택 -->
+<script>
+$(document).ready(function() {
+	console.log($("input[type='text']").val())
+	
+	$("input[type='text']").val("Hello jQuery..!");
+	console.log($("input[type='text']").val())
+	
+	$("input[type='password']").css("color", "red");
+
+});
+
+</script>
+</head>
+<body>
+	<input type="text" value="저요?" name="name"><br>
+	<input type="password" name="pwd"><br>
+</body>
+</html>
+

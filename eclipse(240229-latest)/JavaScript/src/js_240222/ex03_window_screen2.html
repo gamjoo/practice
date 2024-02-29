@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- 브라우저 크기를 화면에 일치시키는 방법
+	 ~By()형태의 메소드는 현재 윈도를 기준으로 상대적으로 속성을 변화하는 메소드
+	 ~To()형태의 메소드는 절대 기준으로 속성을 변화하는 메소드
+-->
+<script>
+	var child = window.open("ex01_dom_delete.html", "_blank",
+			"width=300, height=200");
+	var width = screen.width;
+	var height = screen.height;
+	
+	child.moveTo(0, 0);	//열려있는 window를 절대 위치로 이동한다
+	child.resizeTo(width, height);
+	//window 크기를 가로 width / 세로 height로 지정한다
+</script>
+</head>
+<body>
+	브라우저 크기를 화면에 일치시키는 방법
+</body>
+</html>

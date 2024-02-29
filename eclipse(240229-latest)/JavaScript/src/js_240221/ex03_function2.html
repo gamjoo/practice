@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>function</title>
+<!-- 자바스크립트의 모든 함수는 내부에 변수 arguments가 있다.
+	 변수 arguments는 넘어온 인자의 순서에 따른 인덱스를 가진 유사배열객체이다.
+	 arguments[0]은 넘어온 인자의 순서 중 처음 인자의 값을 의미한다.
+	 arguments.length에서 length는 매개변수의 갯수를 구하는 속성이다.
+	 배열과 비슷하지만 배열을 다루는 모든 메소드를 갖고 있지는 않다.
+-->
+<script>
+	//함수 선언
+	function max() {
+		var max = arguments[0];
+		for (var i=1; i<arguments.length; i++) {
+				if(max < arguments[i])
+					max = arguments[i];
+			}
+		return max;
+	}
+
+	
+	//결과 출력 방법 1.
+	//함수를 호출 및 출력한다.
+	document.write("최댓값 = " + max(9,20,3,4,5,6,7,8,90));
+	
+	//결과 출력 방법 2.
+	//함수를 호출한 후 리턴된 값을 result에 저장한다.
+	var result = max(9,20,3,4,5,6,7,8,90);
+	
+	//result를 출력한다
+	document.write("<br><hr>"+result);
+</script>
+</head>
+<body>
+</body>
+</html>
