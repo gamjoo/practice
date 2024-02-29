@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee                       
+http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+
+<!-- 브라우저에 아래와 같이 입력하세요.
+	http://localhost:8088/JSP/start
+ -->
+ 
+ <servlet>
+ 	<servlet-name>S_Test</servlet-name>
+ 	<servlet-class>_1.ServletTest</servlet-class>
+ </servlet>
+
+ <servlet-mapping>
+ 	<servlet-name>S_Test</servlet-name>
+ 	<url-pattern>/start</url-pattern>
+ </servlet-mapping>
+
+</web-app>
