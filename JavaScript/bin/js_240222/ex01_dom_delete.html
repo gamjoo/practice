@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- 문서 객체 제거
+	 removeChild(child) : 문서 객체의 자식 노드를 제거한다.
+-->
+	<script>
+		window.onclick = function() {
+			var willRemove = document.getElementById('will-remove');
+			document.body.removeChild(willRemove);
+		}
+	</script>
+</head>
+<body>
+	<h1 id="will-remove">클릭하면 저는 사라져요</h1>
+	<h1>나는 남아 있어요</h1>
+</body>
+</html>
+

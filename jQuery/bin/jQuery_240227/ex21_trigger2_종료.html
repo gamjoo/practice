@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+ <script>
+ 	$(document).ready(function () {
+ 		//이벤트를 연결한다.
+ 		$("h1").click(function () {
+ 			$(this).html(function (index, html) {
+ 				return html + "★";
+ 			});
+ 		});
+ 		
+ 		//1초마다 함수 실행
+ 		//마지막에 위치한 h1태그는 자동으로 1초마다 클릭 이벤트를 실행한다
+ 		const timer = setInterval(function () {
+ 			//$("h1").last().trigger("click");
+ 			//$("h1").eq(1).trigger("click");
+ 			$("h1:last").trigger("click");
+ 		}, 1000);
+ 		
+ 		$("#end").click(function() {
+ 			alert("트리거 종료");
+ 			clearInterval(timer); //타이머 종료
+ 		})
+ 	});
+ </script>
+</head>
+<body>
+	<h1>Start :</h1>
+	<h1>Start :</h1>
+	<input type="button" value="트리거 종료" id="end">
+</body>
+</html>
+
