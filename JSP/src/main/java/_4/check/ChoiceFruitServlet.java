@@ -48,5 +48,27 @@ public class ChoiceFruitServlet extends HttpServlet {
 	}
 	
 	System.out.println("===== 선택한 모든 과일 끝 =====");
+	
+	
+	out.println("<html><head>"
+			+ "<style>body{background:black;} "
+			+ "table{background:yellow;margin:0 auto;text-align:center} "
+			+ "tr{border:1px solid black;}"
+			+ "td{border:1px solid black;} "
+			+ "th{color:red;border:1px solid black;font-size:17pt} "
+			+ "img{width:150px;height:150px} "
+			+ "</style></head>");
+	out.println("<body><table><thead><tr>");
+	for (int i=0; i<f.length; i++) {
+		out.println("<th>"+f[i]+"</th>");
 	}
+	out.println("<tbody><tr>");
+	for (int i=0; i<f.length; i++) {
+		out.println("<td><img src=../image/"+f[i]+"></td>");
+	}
+	out.println("</tr></tbody>");
+	out.println("</thead></table></body></html>");
+			
+
+}
 }
