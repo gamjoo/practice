@@ -68,7 +68,5 @@ public class ChoiceFruitServlet extends HttpServlet {
 	}
 	out.println("</tr></tbody>");
 	out.println("</thead></table></body></html>");
-			
-
 }
 }
