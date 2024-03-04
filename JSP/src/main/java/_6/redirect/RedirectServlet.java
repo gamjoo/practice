@@ -18,13 +18,8 @@ public class RedirectServlet extends HttpServlet {
 	}
 	
 	/* 페이지 이동 방법
-	 * Dispatcher 방식
-	 *   -클라이언으로부터 요청 받은 Servlet 프로그램이 응답을 하지 않고
-	 *    다른 서브릿이나 JSP 페이지 등에 요청을 전달한다. (요청 재지정)
-	 *   -이 방식으로 이동하면 주소 표시줄의 주소가 변경되지 않는다.
-	 *   -request 영역을 공유하게 된다
-	 *   -방법 : RequestDispatcher에서 제공하는 메소드(forward())를 사용하여
-	 *          요청을 재지정 한다.
+	 * Redirect 방식 : 이동할 때 브라우저의 주소 표시줄의 URL이 변경되므로 요청이 바뀌게 된다.
+	 * 이동한 jsp페이지에서는 서블릿에서 request 영역의 속성 값에 접근할 수 없다.
 	 */
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

@@ -69,6 +69,5 @@ public class ChoiceFruitServlet extends HttpServlet {
 	out.println("</tr></tbody>");
 	out.println("</thead></table></body></html>");
 
-		//만약 이 주석이 이클립스에 보인다면, github에 작성한 내용이 이클립스에도 반영되는 것이다
 }
 }

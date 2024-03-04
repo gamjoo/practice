@@ -18,7 +18,7 @@ public class RedirectServlet2 extends HttpServlet {
 	}
 	
 	//Redirect 방식 : 포워딩될 때 브라우저의 주소 표시줄의 URL이 변경되므로 요청이 바뀐다
-	//이동된 jsp페이지에서는 서블릿에서 request 영역의 공유한 속성 값에 접근할 수 없다.
+	//이동된 jsp페이지에서는 서블릿에서 request 영역에 공유한 속성 값을 접근할 수 없다.
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {
 		

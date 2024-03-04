@@ -21,7 +21,7 @@ public class DispatcherServlet extends HttpServlet {
 	/* 페이지 이동 방법
 	 * Dispatcher 방식
 	 *   -클라이언으로부터 요청 받은 Servlet 프로그램이 응답을 하지 않고
-	 *    다른 서브릿이나 JSP 페이지 등에 요청을 전달한다. (요청 재지정)
+	 *    다른 서블릿이나 JSP 페이지 등에 요청을 전달한다. (요청 재지정)
 	 *   -이 방식으로 이동하면 주소 표시줄의 주소가 변경되지 않는다.
 	 *   -request 영역을 공유하게 된다
 	 *   -방법 : RequestDispatcher에서 제공하는 메소드(forward())를 사용하여
