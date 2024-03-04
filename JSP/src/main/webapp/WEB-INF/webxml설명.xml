@@ -26,7 +26,7 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
  	주소 지정시 "http://서버주소:포트번호/웹 애플리케이션이름"까지 생략하고 그 다음부터 지정한다.
  -->
  
-  <servlet>
+ <servlet>
  	<servlet-name>S_Test</servlet-name>
  	<servlet-class>_1.ServletTest</servlet-class>
  </servlet>
