@@ -13,22 +13,35 @@
  }
  
  tr, td {
- 	border:1px solid gray;
+ 	border-collapse:collapse;
  }
  
  td {
- 	width:250px;
+ 	width:270px;
  	height:40px;
  }
  
+ tr:first-child td {
+ 	background:#a9f1a9;
+ }
+ 
  .data {
- 	width:75px;
+ 	width:90px;
+ 	background:#ffa500;
+ }
+ 
+ td:nth-child(2n) {
+ 	background:yellow;
+ }
+ 
+ tr:last-child td {
+ 	background:green;
  }
 </style>
 </head>
 <body>
 <h1>영역과 속성 테스트</h1>
-<form action="attributeTest1" method="post">
+<form action="attributeTest1.jsp" method="post">
 <table>
 		<tr>
 			<td colspan="2">Application 영역에 저장할 내용들</td>
@@ -48,7 +61,3 @@
 </form>
 </body>
 </html>
-
-<!-- 
-
- -->
