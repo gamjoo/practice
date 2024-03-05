@@ -18,4 +18,39 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
  	<url-pattern>/start</url-pattern>
  </servlet-mapping>
 
+ <!-- 파라미터 이름이 logEnabled이고 파라미터 값이 "true"인 초기화 파라미터 추가 -->
+  <context-param>
+   <description>로깅 여부</description>
+   <param-name>logEnabled</param-name>
+   <param-value>true</param-value>
+ </context-param>
+ 
+ <!-- 파라미터 이름이 debugLevel이고 파라미터 값이 "5"인 초기화 파라미터 추가 -->
+ <context-param>
+   <description>디버깅 레벨</description>
+   <param-name>debugLevel</param-name>
+   <param-value>5</param-value>
+ </context-param>
+ 
+ <!--
+각각의 응답 상태 코드별로 보여줄 페이지를 지정한다.
+<error-page> : 하나의 에러 페이지를 지정
+<error-code> : 에러 상태 코드 지정
+<location> : 에러 페이지의 위치 지정
+<exception-type> : 예외 종류
+ -->
+ <error-page>
+ 	<error-code>404</error-code>
+ 	<location>/ex3_implicit_object/_6.exception/error/error404.jsp</location>
+ </error-page>
+ 
+ <error-page>
+ 	<error-code>500</error-code>
+ 	<location>/ex3_implicit_object/_6.exception/error/error500.jsp</location>
+ </error-page>
+ 
+ <error-page>
+ 	<exception-type>java.lang.NullPointerException</exception-type>
+ 	<location>/ex3_implicit_object/_6.exception/error/errorNullPointer.jsp</location>
+ </error-page>
 </web-app>
