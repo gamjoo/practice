@@ -10,6 +10,31 @@
     .container{margin:3em auto; border:1px solid lightgray;width:500px}
   </style>
 </head>
+
+<% 
+	String idvalue = "";
+	String cookie = request.getHeader("Cookie");
+	
+	if(cookie != null) {
+		Cookie cookies[] = request.getCookies();
+		for (int i=0; i<cookies.length; i++) {
+			if(cookies[i].getName().equals("idpass")) {
+				idvalue = cookies[i].getValue();
+			}
+		}
+	}
+%>
+
+
+<script>
+$(document).ready(function () {
+	if ("<%=idvalue%>" != null) {
+		$("#remember").prop("checked", true)
+		$("#id").val("<%=idvalue%>"); 
+	}
+})
+</script>
+
 <body>
 <div class="container">
 	<form action="login_ok.jsp" method="post" class="border-light p-5" >
