@@ -35,7 +35,7 @@ public class FileDown extends HttpServlet {
 		String sFilePath = sDownloadPath + File.separator + fileName;
 		System.out.println(sFilePath);
 		
-		byte b[] = new byte[4096];
+		byte b[] = new byte[4096]; //4KB
 		
 		//sFilePath에 있는 파일의 MimeType을 구해온다.
 		String sMimeType = context.getMimeType(sFilePath);
@@ -79,8 +79,8 @@ public class FileDown extends HttpServlet {
     2)Content-Disposition:
       attachment:브라우저는 해당 Content를 처리하지 않고 다운로드하게 된다.
   */
-  response.setHeader("Content-Disposition", "attachment; filename=" + sEncoding);
-  //response.setHeader("Content-Disposition", "inline; filename=" + sEncoding);
+  //response.setHeader("Content-Disposition", "attachment; filename=" + sEncoding);
+  response.setHeader("Content-Disposition", "inline; filename=" + sEncoding);
   
   /*
   1.try-with-resource문으로 try()괄호 안에 선언된 자원은 try문이 끝날 때
