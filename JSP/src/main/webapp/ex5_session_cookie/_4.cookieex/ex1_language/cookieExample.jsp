@@ -31,6 +31,7 @@
 	  }
   }
 %>
+
 <script>
  $(document).ready(function() {
 	const id = "#<%=language%>";
@@ -38,6 +39,7 @@
 	$(id).prop("checked","true");
  })
 </script>
+
 </head>
 <body>
 <%

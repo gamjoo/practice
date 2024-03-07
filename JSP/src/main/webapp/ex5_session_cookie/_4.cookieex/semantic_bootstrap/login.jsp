@@ -28,7 +28,7 @@
 
 <script>
 $(document).ready(function () {
-	if ("<%=idvalue%>" != null) {
+	if ("<%=idvalue%>" != "") {
 		$("#remember").prop("checked", true)
 		$("#id").val("<%=idvalue%>"); 
 	}

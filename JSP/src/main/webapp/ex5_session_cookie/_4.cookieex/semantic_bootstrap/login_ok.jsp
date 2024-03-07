@@ -13,7 +13,7 @@
 	
 	Cookie cookie = new Cookie("idpass", inputid);
 	System.out.print(inputcheck);
-	if (inputcheck != null) {
+	if (inputcheck != null && inputcheck.equals("store")) {
 		cookie.setMaxAge(60*60*24);
 		response.addCookie(cookie);
 	} else {
