@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>전환 transition</title>
+<style>
+/*
+	전환(transition)이란 HTML 태그에 적용된 CSS 속성 값의 변화를 서서히 진행시켜 애니메이션 효과를 나타낸다.
+	형식) 선택자 {transition : border 4s}
+		테두리가 4초동안 점진적으로 변하게 한다.
+*/
+
+div {
+	background-color : red;
+	width : 100px;
+	height : 100px;
+
+}
+
+div:hover {
+	width : 300px;
+	height : 300px;
+	background-color : green;
+	
+	/*테두리가 4초 동안 점진적으로 변하고, 배경색은 8초 동안 점진적으로 변한다*/
+	
+	transition : width 4s, height 4s, background-color 4s;
+}
+
+</style>
+</head>
+	<body>  
+<!--  빨간색 박스가 마우스를 올리면 크기가 커지고 녹색 박스로 4초동안 점진적으로 변하게 해보세요 -->  
+<h1>전환(transition)</h1>  
+  
+<p>박스에 마우스를 올려보세요</p>  
+<div></div>  
+</body>
+</html>
