@@ -34,7 +34,7 @@
      <label class="control-label" for="receiver">받는 주소<font color="red">*</font></label>
       <input type="email" name="receiver" id="receiver" class="form-control"
       	   	 placeholder="받는 분의 이메일 주소를 입력하세요." required>
-    </div>  
+    </div> 
 
     <div class="form-group">
      <label class="control-label" for="subject">메일 제목<font color="red">*</font></label>
