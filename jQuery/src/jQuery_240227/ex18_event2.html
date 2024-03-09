@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+ 
+ <!-- 
+ jQuery로 이벤트를 연결하는 가장 기본적인 방법은 on()메소드를 사용하는 것이다.
+ 형식) $(selector).on(eventName, function(event){})
+ 
+ 만약 eventName이 "click"인 경우 click()도 사용가능하다
+ $(selector).click(function(){})
+  -->
+ <script>
+	$(document).ready(function () {
+		/*
+		이벤트를 연결한다.
+		1) on()메소드의 1번째 매겨변수는 이벤트 이름(click)이고
+		              2번째 매개변수는 이벤트 발생시 실행할 코드를 작성한다
+		2) 여기서 사용된 this는 이벤트가 발생한 객체를 의미한다.
+		3) div태그를 click이벤트에 연결하고 이벤트 발생시 이벤트 발생 객체에 ★ 추가
+		*/
+		$("div").click( function() {
+			$(this).html(function(index, html) {
+				console.log("index="+index+", html"+html)
+				return html + "★";
+			})
+		})
+	});
+ </script>
+</head>
+<body>
+	<div>월요일</div>
+	<div>화요일</div>
+	<div>수요일</div>
+</body>
+</html>
