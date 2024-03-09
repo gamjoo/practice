@@ -1,0 +1,31 @@
+<!-- 
+			자바스크립트 코드의 위치
+		1.HTML 태그의 이벤트 리스너 속성(onclick, onload, onchange, onkeyup, onsubmit 등)에 작성
+			예) <img src="Koala.jpg" onclick="this.src='Desert.png'">
+			
+		2.<script></script>내에 작성
+			예) <script>
+					alert("자바스크립트 안녕~!!!");
+				</script>
+		3.자바스크립트 파일에 작성
+			예) <script src="welcome.js"></script>
+		4.URL 부분에 작성
+			예) <a href="javascript:alert('Hello World')">환영합니다</a>	
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Welcome to the JavaScript</title>
+</head>
+<body>
+		안녕하세요? 자바스크립트 세계에 오신 것을 환영합니다.~^^<br>
+		<img src="image/cat.png"
+			 onclick="this.src='image/fish.png'"
+			 style="width:300px; height:300px">
+<script>
+	document.write("<br>Hello, \n\n welcome to the JavaScript world!");
+</script>
+</body>
+</html>
