@@ -29,11 +29,11 @@ public class DAO {
 			DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/OracleDB");
 			conn = ds.getConnection();
 			
-			String select_sql = "select * from emp where 컬럼명어케하냐 = ? ";
+			String select_sql = "select * from emp where "
+							  + fieldset[field] + " like" + " '%" + search + "%'";
 		
 			pstmt = conn.prepareStatement(select_sql);
-			pstmt.setString(1, fieldset[field]);
-			pstmt.set(2, search);
+			System.out.print(select_sql);
 			
 			rs = pstmt.executeQuery();
 			

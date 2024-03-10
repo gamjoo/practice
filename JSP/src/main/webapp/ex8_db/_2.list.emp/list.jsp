@@ -24,7 +24,7 @@
   <p>검색어를 입력하세요</p>
    <input class="form-control" id="myInput" type="search" placeholder="Search..">
   
- <%@ page import="java.util.*, ex8.Emp" %>
+ <%@ page import="java.util.*, ex9_search_emp.Emp" %>
  <%
   ArrayList<Emp> list = (ArrayList<Emp>) request.getAttribute("list");
  
