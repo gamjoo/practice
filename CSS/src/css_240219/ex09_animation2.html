@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>글자색바꾸기</title>
+<!-- 애니메이션 도중의 주요 장면을 중간 상태에 해당하는 키프레임으로 설정하고 난 후
+	 원하는 객체에 이미 작성된 키프레임을 애니메이션으로 지정하면 된다.
+	 키프레임 설정은 @keyframes 규칙으로 작성하며 진행비율을 %나 from 및 to로 지정한다.
+	 -->
+<style>
+	@keyframes colorChange {
+		15% {color : red;}
+		30% {color : orange;}
+		45% {color : yellow;}
+		60% {color : green;}
+		75% {color : blue;}
+		100% {color : purple;}
+	}
+	/*
+		animation-name : 애니메이션이름(@keyframes의 name 지정);
+		animation-duration : 1회 애니메이션 시간;
+		animation-iteration-counr : 애니메이션 반복 횟수
+									(숫자 또는 infinite-무한 반복)
+		위의 문장들을 한번에 작성하면 다음과 같다.
+		animation : 애니메이션이름 시간 반복횟수
+	*/
+	h1 {
+		font-size : 30pt;
+		animation : colorChange 6s infinite;
+	}
+</style>
+</head>
+<body>
+	<h1>1시는 점심시간 입니다~</h1>
+</body>
+</html>

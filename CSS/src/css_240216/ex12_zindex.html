@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>z-index로 앞뒤 배치 : 큰 수가 앞으로 배치된다.</title>
+<!-- z-index- 속성은 하나의 정수 값을 가질 수 있다(양수, 음수 모두 가능)
+	 이 값은 해당 엘리먼트의 z축 상의 위치를 나타낸다. 디폴트 0. -->
+	<style>
+	div {
+		width : 100px;
+		height : 100px;
+		}
+		
+	#box1{
+	position : absolute;
+	background:red;
+	left : 30px;
+	top : 50px;
+	z-index : 10;
+	}
+	
+	#box2{
+	position : absolute;
+	background:blue;
+	left : 60px;
+	top : 75px;
+	}
+	
+	#box3{
+	position : absolute;
+	background : green;
+	left : 75px;
+	top : 90px;
+	z-index : 20;}
+	</style>
+</head>
+<body>
+	<div id=box1></div>
+	<div id=box2></div>
+	<div id=box3></div>
+</body>
+</html>

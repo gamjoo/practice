@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>String 객체의 메소드 활용</title>
+</head>
+<meta charset="UTF-8">
+<body>
+	<h3>String 객체의 메소드 활용</h3>
+	<hr>
+ 	<script>
+ 	//주민번호를 입력받아 남자와 여자에 따라 body 배경색을 설정한다.
+ 		var jumin = prompt("주민번호를 입력하세요?", "810908-3234567");
+		
+ 		var test = jumin.substr(7,1);
+ 		if (test == "1" || test == "3") {
+ 			document.write("남자");
+ 			document.body.style.background = '#565698';
+ 		} else if (test == "2" || test == "4") {
+ 			document.write("여자");
+ 			document.body.style.background = 'pink';		
+ 		}
+// 		if (jumin.substr(7,1)=="1" || jumin.substr(7,1)=="3"){
+// 			result = "남자"+"<style>body{background:orange}</style>";
+// 		} else {
+// 			result = "여자"+"<style>body{background:green}</style>";
+// 		}
+// 		document.write(result);
+ 
+ 	</script>
+</body>
+</html>

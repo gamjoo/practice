@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+ <!-- 이벤트 연결 제거
+ 	  off() : 이벤트를 제거한다. -->
+ <script>
+ 	$(document).ready(function () {
+ 		let count=0;
+ 		//이벤트를 연결한다.
+ 		//click() 메소드 사용
+ 		$("div").click(function () {
+ 			//this : 이벤트가 발생한 객체
+ 			$(this).html("<mark>이벤트가 발생했습니다.</mark>" + count++);
+ 		
+ 			//이벤트 제거
+ 			//"<mark>이벤트가 발생했습니다.</mark>"로 바뀐 곳은 클릭해도 이벤트 발생X
+ 			$(this).off();
+ 		})
+ 	})
+ </script>
+</head>
+<body>
+	<div>월요일</div>
+	<div>화요일</div>
+	<div>수요일</div>
+</body>
+</html>

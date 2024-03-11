@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+table {width:500px;
+	   border-collapse:collapse;
+	   text-align:center;}
+</style>
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+ <!-- empty() : 문서 객체 내부를 비운다 -->
+ <script>
+	$(document).ready(function () {
+		$("thead").empty(); //thead 엘리먼트의 내부가 사라진다
+	});
+ </script>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<td>번호</td>
+				<td>이름</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>홍길동</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>이순신</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

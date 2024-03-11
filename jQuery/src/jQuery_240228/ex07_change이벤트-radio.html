@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>checkbox-chage이벤트</title>
+<script src="../js/jquery-3.7.1.js"></script>
+<script>
+	$(document).ready(function () {
+		$("select").change(function (event) {
+			$("#iconImg").prop("src", $(this).val());
+		});
+	});
+	
+</script>
+</head>
+<body>
+		<h3>select 객체에서 선택한 그림 출력</h3>
+	<hr>
+	<div>select 객체를 선턱하면 해당 이미지가 보인다</div>
+	<form>
+		<select id="icon">
+			<option value="../image/lemon.png">lemon</option>
+			<option value="../image/cat.png" selected>cat</option>
+			<option value="../image/fish.png">fish</option>
+		</select><br>
+		<img id="iconImg" src="../image/cat.png">
+	</form>
+</body>
+</html>

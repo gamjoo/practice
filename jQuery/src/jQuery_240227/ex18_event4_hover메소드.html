@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+.reverse { background : black;
+		   color : white;}
+div { margin : 1em; }
+</style>
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+ <!--
+ hover() 메소드 : mouse-enter 이벤트, mouse-leave 이벤트를 동시에 연결한다
+ 형식) $(selector).hover(function(event){},
+ 						function(event){});
+  -->
+ <script>
+	$(document).ready(function () {
+		//이벤트를 연결한다.
+		$("div").hover(function () {
+			$(this).addClass("reverse"); //mouse-enter 이벤트
+		},
+		function () {
+			$(this).removeClass("reverse"); //mouse-leave 이벤트
+		}
+		); //hover
+	}); //ready
+ </script>
+</head>
+<body>
+	<div>월요일</div>
+	<div>화요일</div>
+	<div>수요일</div>
+</body>
+</html>

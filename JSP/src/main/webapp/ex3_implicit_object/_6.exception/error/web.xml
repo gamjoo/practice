@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee                       
+http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+
+<!--
+각각의 응답 상태 코드별로 보여줄 페이지를 지정한다.
+<error-page> : 하나의 에러 페이지를 지정
+<error-code> : 에러 상태 코드 지정
+<location> : 에러 페이지의 위치 지정
+<exception-type> : 예외 종류
+ -->
+ <error-page>
+ 	<error-code>404</error-code>
+ 	<location>/ex3_implicit_object/_6.exception/error/error404.jsp</location>
+ </error-page>
+ 
+ <error-page>
+ 	<error-code>500</error-code>
+ 	<location>/ex3_implicit_object/_6.exception/error/error500.jsp</location>
+ </error-page>
+ 
+ <error-page>
+ 	<exception-type>java.lang.NullPointerException</exception-type>
+ 	<location>/ex3_implicit_object/_6.exception/error/errorNullPointer.jsp</location>
+ </error-page>
+</web-app>

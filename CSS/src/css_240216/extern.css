@@ -1,0 +1,72 @@
+header {
+	box-sizing : border-box;
+	background : rgb(252, 198, 162);
+	color : white;
+	text-align : center;
+	line-height : 10vh;
+	height : 10vh;
+}
+
+nav ul {
+	box-sizing : border-box;
+	background : rgb(248, 155, 108);
+	margin : 0px;
+	height : 10vh;
+	padding : 4vh;
+}
+
+nav li {
+	display : inline-block;
+	padding : auto;
+	margin : 0vh 2vh;
+}
+
+a {
+	color : white;
+	text-decoration : none;
+}
+
+aside {
+	width : 40vw;
+	height : 70vh;
+	color : white;
+	box-sizing : border-box;
+	padding-top : 20px;
+	background : rgb(243, 115, 033);
+	float : right;
+}
+
+aside li {
+	font-size : 20pt;
+	list-style-type : circle;
+}
+
+footer {
+	display : block;
+	background : rgb(123, 142, 169);
+	color : white;
+	margin : 0px;
+	height : 10vh;
+	text-align : center;
+	line-height : 10vh;
+}
+
+article {
+	box-sizing : border-box;
+	padding : 35px 35px 35px 45px;
+	background-color : rgb(043, 063, 107);
+	color : white;
+	width : 60vw;
+	margin : 0;
+	height : 70vh;
+}
+
+h1 {
+	margin : 0;
+}
+
+p {
+	width : 30vw;
+}
+
+p::before {content : "▶"}

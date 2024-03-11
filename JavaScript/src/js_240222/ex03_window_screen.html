@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- screen 객체는 웹브라우저의 화면이 아니라 운영체제 화면의 속성을 갖고 있는 객체다
+	 즉, 브라우저가 실행되는 스크린 장치에 대한 정보를 담고 있는 객체
+	 screen 객체의 모든 속성을 출력해본다
+	 width : 화면너비
+	 height : 화면 높이
+	 availHeight : 작업표시줄을 제외한 화면 높이
+	 availWidth : 작업표시줄을 제외한 화면 너비
+-->
+<script>
+	var output = '';
+	for (var key in screen) {
+		output += "●" + key + " : " + screen[key] + "<br>";
+	}
+	
+	document. write(output);
+</script>
+</head>
+<body>
+</body>
+</html>
