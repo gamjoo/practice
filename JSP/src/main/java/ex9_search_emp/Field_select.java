@@ -28,7 +28,8 @@ public class Field_select extends HttpServlet {
 		DAO dao = new DAO();
 		ArrayList<Emp> list = dao.select(field, search);
 		RequestDispatcher dispatcher
-		 = request.getRequestDispatcher("/ex8_db/_2.list.emp/list.jsp");//view
+//		 = request.getRequestDispatcher("/ex8_db/_2.list.emp/list.jsp");//view
+		 = request.getRequestDispatcher("/ex8_db/_2.list.emp/list_el.jsp");
 		request.setAttribute("list", list);
 		dispatcher.forward(request, response);
 	}
