@@ -20,14 +20,16 @@
  	line-height:3rem;
   }
 </style>
+
+<script>
+	let result='${message}';
+	 if(result != '') {
+		 alert(result);
+		 <%session.removeAttribute("message");%>
+	 }
+</script>
 </head>
 <!-- 처음 보여줄 항목을 정하는 스크립트릿 자바코드 -->
-<%
-	String pagefile = request.getParameter("page");
-	if(pagefile == null) {
-		pagefile = "newitem";
-	}
-%>
 <body>
   <header>	
     <div class="jumbotron text-center" style="margin-bottom:0">
@@ -46,7 +48,7 @@
 	     </div>
 	     <div class="col-sm-8" style="margin-botoom:5rem">
 	       <section>
-	         <jsp:include page='<%=pagefile + ".jsp"%>' />
+	         <jsp:include page='${pagefile}.jsp' />
 	       </section>
 	     </div>
 	   </div>
@@ -57,7 +59,7 @@
   </footer>
   
   <script>
-  	const pagefile="<%=pagefile%>";
+  	const pagefile='${pagefile}';
   	const filelist = ["newitem", "bestitem", "useditem"];
   	
   	for(let index=0; index<filelist.length; index++) {

@@ -36,7 +36,7 @@ $(document).ready(function() {
 				if (pattern.test(jumin2Value)) {
 					const c = Number(jumin2Value.substring(0,1));
 					const index = (c-1)%2;
-					$("input[type=radio]").eq(index).prop("checked", "true");
+					$("input[type=radio]").eq(index).prop("checked", true);
 				} else {
 					alert("숫자 또는 형식에 맞게 입력하세요[1234][0-9]{6}");
 					$(this).val("").focus();
