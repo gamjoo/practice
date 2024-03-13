@@ -15,7 +15,7 @@
  --%>
 <%
  session.setAttribute("login_id", "hong");
- session.invalidate();
+// session.invalidate();
 %>
  <c:out value="${login_id}"/>
  <hr>

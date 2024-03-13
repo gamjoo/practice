@@ -53,7 +53,7 @@ varStatus 속성은 반복 정보를 담고 있는 객체(LoopTagStatus)를 저�
 <ul>
  <c:forEach var="name" items="${nameList }" begin="2" end="3"
  		    varStatus="status">
-  <li>반복 ${status.count}객체 => index[${status.index }]:${name}</li>
+  <li>반복 ${status.count}번째 => index[${status.index }]:${name}</li>
  </c:forEach>
 </ul>
 <hr>
