@@ -27,6 +27,13 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
  	font-size:1.5em;
  }
 </style>
+<script>
+	let result='${message}';
+	if(result != '') {
+		alert(result);
+		<%session.removeAttribute("message");%>
+	}
+</script>
 </head>
 <body>
  <jsp:include page="top.jsp" />
@@ -73,6 +80,8 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     </tr>
     </tbody>
   </table>
+  <input type="button" value="이전 페이지로 이동" onclick="history.back()">
+
   </c:if>
   
   <c:if test="${empty temp }">

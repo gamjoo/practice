@@ -219,7 +219,6 @@ public class DAO {
 		Connection conn=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		Template_join join=null;
 		ArrayList<Template_join> list=new ArrayList<Template_join>();
 		
 		try {
@@ -289,4 +288,41 @@ public class DAO {
 	}
 	return list;
 	}//ArrayList<Template_join> selectAll() end
+
+	public int delete(String id) {
+		Connection conn=null;
+		PreparedStatement pstmt = null;
+		int result=0;
+		try {
+			Context init=new InitialContext();
+			DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/OracleDB");
+			conn = ds.getConnection();
+			
+			String sql = "delete from template_join "
+					   + "where id = ? ";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception se) {
+			se.printStackTrace();
+		} finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					System.out.println(e.getMessage());
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+				}
+			}
+		}//finally end
+		return result;
+	}//delete() 메소드 끝
 }//class end
