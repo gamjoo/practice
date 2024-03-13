@@ -2,7 +2,7 @@ package net.template.db;
 
 public class Template_join {
 	private String id;
-	private String password;
+	private String pass;
 	private String jumin;
 	private String email;
 	private String gender;
@@ -19,10 +19,10 @@ public class Template_join {
 		this.id = id;
 	}
 	public String getPassword() {
-		return password;
+		return pass;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPassword(String pass) {
+		this.pass = pass;
 	}
 	public String getJumin() {
 		return jumin;
@@ -38,6 +38,13 @@ public class Template_join {
 	}
 	public String getGender() {
 		return gender;
+	}
+	public String getGenderView() {
+		if(gender.equals("m")) {
+			return "남자";
+		} else {
+			return "여자";
+		}
 	}
 	public void setGender(String gender) {
 		this.gender = gender;
@@ -67,7 +74,7 @@ public class Template_join {
 		this.intro = intro;
 	}
 	public String getRegister_date() {
-		return register_date;
+		return register_date.substring(0,10);
 	}
 	public void setRegister_date(String register_date) {
 		this.register_date = register_date;
