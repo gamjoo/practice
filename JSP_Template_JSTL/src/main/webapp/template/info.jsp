@@ -84,7 +84,7 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
   </c:if>
   
-  <c:if test="${empty temp }">
+  <c:if test="${empty temp}">
   	<h4>조회된 데이터가 없습니다.</h4>
   </c:if>
  </div>

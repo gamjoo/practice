@@ -33,7 +33,7 @@ public class DeleteAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("info.net");
+		forward.setPath("list.net");
 		return forward;
 		
 	}
