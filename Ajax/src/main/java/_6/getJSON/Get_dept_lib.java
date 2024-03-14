@@ -22,7 +22,10 @@ public class Get_dept_lib extends HttpServlet {
 		JsonArray array = dao.getArray();
 		
 		System.out.println(array);
-		response.getWriter().print(array); //[{"name":"홍길동"},{"name":"이순신"}]
+		response.getWriter().print(array); 
+		//[{"deptno":"10", "dname":"ACCOUNTING", "loc":"NEW YORK"},
+		// {"deptno":"20", "dname":"RESEARCH", "loc":"DALLAS"},...]
+		
 	}
 	
 

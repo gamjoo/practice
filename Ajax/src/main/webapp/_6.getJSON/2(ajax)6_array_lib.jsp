@@ -44,7 +44,7 @@ $(function() {
 </head>
 <body>
   <div class="container">
-    <button class="btn btn-info">JSON 데이터를 불러온다.</button>
+    <button class="btn btn-info">JSON 데이터 불러오기</button>
   </div>
 </body>
 </html>
