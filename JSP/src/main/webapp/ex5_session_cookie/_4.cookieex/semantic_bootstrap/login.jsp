@@ -36,28 +36,21 @@ $(document).ready(function () {
 </script>
 
 <body>
-<div class="container">
-	<form action="login_ok.jsp" method="post" class="border-light p-5" >
-	 <p class="h4 mb-4 text-center">login</p>
-	 <div class="form-group">
-       <label for="id">id</label>
-       <input type="text" class="form-control"  id="id" placeholder="Enter id"  name="id">
-    </div>
-	<div class="form-group">
-       <label for="pass">Password</label>
-       <input type="password" class="form-control" id="pass" 
-              placeholder="Enter password" name="passwd">
-    </div>
-	
-	<div class="form-group custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" 
-               id="remember" name="remember" value="store">
-        <label class="custom-control-label" for="remember">아이디 기억하기</label>
-    </div>
-       
-	<button type="submit" class="btn btn-info my-4 btn-block">Submit</button>
-	 
-	</form>
-	</div>
+<form name="loginform" action="LoginProcess.net" method="post">
+  <h1>로그인</h1>
+  <hr>
+  <b>아이디</b>
+  <input type="text" name="id" placeholder="Enter id" required>
+  
+  <b>Password</b>
+  <input type="password" name="pass" placeholder="Enter passwrod" required>
+  <input type="checkbox" id="remember" name="remember" value="store">
+  <span>remember</span>
+  
+  <div class="clearfix">
+    <button type="submit" class="submitbtn">로그인</button>
+    <button type="button" class="join">회원가입</button>
+  </div>
+</form>
 </body>
 </html>
