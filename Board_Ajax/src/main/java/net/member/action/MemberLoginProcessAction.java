@@ -2,6 +2,7 @@ package net.member.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import net.member.db.MemberDAO;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
@@ -11,7 +12,6 @@ import jakarta.servlet.http.HttpSession;
 
 import net.common.action.Action;
 import net.common.action.ActionForward;
-import net.member.db.MemberDAO;
 
 public class MemberLoginProcessAction implements Action {
 
@@ -22,7 +22,7 @@ public class MemberLoginProcessAction implements Action {
 		String id = request.getParameter("id");
 		String pass = request.getParameter("pass");
 		MemberDAO mdao = new MemberDAO();
-		int result= mdao.isId(id, pass);
+		int result = mdao.isId(id, pass);
 		System.out.println("결과는 " + result);
 		
 		//로그인 성공
