@@ -21,6 +21,7 @@ public class BoardBean {
 	private int board_re_seq; //답변 글의 순서
 	private int board_readcount; //글의 조회수
 	private String board_date;
+	private int cnt;
 	
 	
 	
@@ -90,5 +91,11 @@ public class BoardBean {
 	}
 	public void setBoard_date(String board_date) {
 		this.board_date = board_date;
+	}
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
 	}
 }

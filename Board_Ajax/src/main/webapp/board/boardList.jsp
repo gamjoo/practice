@@ -101,7 +101,7 @@
 	</table>
 	
 	<div class="center-block">
-	  <ul class="paginaion justify-content-center">
+	  <ul class="pagination justify-content-center">
 	    <c:if test="${page <= 1}">
 	      <li class="page-item">
 	        <a class="page-link gray">이전&nbsp;</a>

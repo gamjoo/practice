@@ -10,7 +10,6 @@ import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-
 import javax.sql.DataSource;
 
 public class BoardDAO {
@@ -20,7 +19,7 @@ public class BoardDAO {
 	public BoardDAO() {
 		try {
 			Context init = new InitialContext();
-			this.ds = (DataSource) init.lookup("java:comp/env/jdbc/OracleDB");
+			ds = (DataSource) init.lookup("java:comp/env/jdbc/OracleDB");
 		} catch (Exception ex) {
 			System.out.println("DB 연결 실패 : " + ex);
 		}
@@ -94,6 +93,7 @@ public class BoardDAO {
 						board.setBoard_re_seq(rs.getInt("BOARD_RE_SEQ"));
 						board.setBoard_readcount(rs.getInt("BOARD_READCOUNT"));
 						board.setBoard_date(rs.getString("BOARD_DATE"));
+						board.setCnt(rs.getInt("cnt"));
 						
 						list.add(board);
 					}
