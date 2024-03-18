@@ -208,6 +208,7 @@ public class Board_main {
 		int limit = inputNumber(sc,1,10);
 		int maxpage = (listcount - 1) / limit + 1;
 		// listcount-1 해주지 않으면 listcount=10, limit=5일 때 페이지가 3으로 계산된다
+		//int maxpage = (listcount - 1 + limit) / limit
 		System.out.println("선택할 페이지를 입력하세요(1~"+maxpage+")>");
 		
 		int page = inputNumber(sc, 1, maxpage);
