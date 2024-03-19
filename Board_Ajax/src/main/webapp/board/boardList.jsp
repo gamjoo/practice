@@ -82,7 +82,7 @@
 	            &nbsp;
 	            </c:if>
 	            
-	            <a href="BoardDetailAction.bo?num=${b.board_num}">
+	            <a href="BoardDetail.bo?num=${b.board_num}">
 	              <c:if test="${b.board_subject.length()>=20}">
 	                <c:out value="${b.board_subject.substring(0,20)}..." />
 	              </c:if>
@@ -131,6 +131,12 @@
 	    <c:if test="${page >= maxpage }">
 	      <li class="page-item">
 	        <a class="page-link gray">&nbsp;다음</a>
+	      </li>
+	    </c:if>
+	    <c:if test="${page < maxpage }">
+	      <li class="page-item">
+	        <a href="BoardList.bo?page=${page+1}"
+	           class="page-link">&nbsp;다음</a>
 	      </li>
 	    </c:if>
 	  </ul>

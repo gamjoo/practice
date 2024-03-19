@@ -62,7 +62,7 @@ public class BoardDAO {
 				+ "    			     on board_num=comment_board_num "
 				+ "   			     order by BOARD_RE_REF desc, BOARD_RE_SEQ asc) j "
 				+ "			     where rownum <= ? ) "
-				+ "where rownum >= ? and rnum <= ?";
+				+ "where rnum >= ? and rnum <= ?";
 		
 		
 		List<BoardBean> list = new ArrayList<BoardBean>();
@@ -144,4 +144,76 @@ public class BoardDAO {
 		}
 		return false;
 	}//boardInsert() 메소드 end
-}
+
+	public BoardBean getDetail(int num) {
+		BoardBean board = null;
+		String sql = "select * from board where BOARD_NUM = ?";
+		try (Connection con = ds.getConnection();
+			 PreparedStatement pstmt = con.prepareStatement(sql);) {
+			 pstmt.setInt(1, num);
+			 try (ResultSet rs = pstmt.executeQuery()) {
+				 if (rs.next()) {
+					 board = new BoardBean();
+						board.setBoard_num(rs.getInt("BOARD_NUM"));
+						board.setBoard_name(rs.getString("BOARD_NAME"));
+						board.setBoard_subject(rs.getString("BOARD_SUBJECT"));
+						board.setBoard_content(rs.getString("BOARD_CONTENT"));
+						board.setBoard_file(rs.getString("BOARD_FILE"));
+						board.setBoard_re_ref(rs.getInt("BOARD_RE_REF"));
+						board.setBoard_re_lev(rs.getInt("BOARD_RE_LEV"));
+						board.setBoard_re_seq(rs.getInt("BOARD_RE_SEQ"));
+						board.setBoard_readcount(rs.getInt("BOARD_READCOUNT"));
+						board.setBoard_date(rs.getString("BOARD_DATE"));
+				 }
+			 } catch (SQLException e) {
+					e.printStackTrace();
+				}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			System.out.println("getBoardList() 에러 : " + ex);
+		}
+		return board;
+	}//getDetail end
+
+	public boolean isboardWriter(int num, String pass) {
+		boolean result = false;
+		String board_sql = "select BOARD_PASS from board where BOARD_NUM = ?";
+		  try (Connection con = ds.getConnection();
+			   PreparedStatement pstmt = con.prepareStatement(board_sql);) {
+			   pstmt.setInt(1, num);
+			   try (ResultSet rs = pstmt.executeQuery()) {
+				   if (rs.next()) {
+					   if (pass.equals(rs.getString("BOARD_PASS"))) {
+						   result = true;
+					   }
+				   }
+			   } catch (SQLException e) {
+				   e.printStackTrace();
+			   }
+		  } catch (SQLException ex) {
+			  System.out.println("isBoardWriter() 에러 : " + ex);
+		  }
+		  return result;
+	}//isBoardWriter end
+
+	public boolean boardModify(BoardBean modifyboard) {
+		String sql = "update board "
+				   + "set BOARD_SUBJECT=?, BOARD_CONTENT=?, BOARD_FILE=? "
+				   + "where BOARD_NUM = ? ";
+		try (Connection con = ds.getConnection();
+			 PreparedStatement pstmt = con.prepareStatement(sql);) {
+			 pstmt.setString(1, modifyboard.getBoard_subject());
+			 pstmt.setString(2, modifyboard.getBoard_content());
+			 pstmt.setString(3, modifyboard.getBoard_file());
+			 pstmt.setInt(4, modifyboard.getBoard_num());
+			 int result = pstmt.executeUpdate();
+			 if (result == 1) {
+				 System.out.println("성공 업데이트");
+				 return true;
+			 }
+		} catch (Exception ex) {
+			System.out.println("boardModify() 에러 :" + ex);
+		}
+		return false;
+	}//boardModify()메소드 end
+}//class end

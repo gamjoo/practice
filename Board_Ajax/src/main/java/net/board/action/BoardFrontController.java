@@ -48,8 +48,20 @@ public class BoardFrontController extends HttpServlet {
 			case "/BoardWrite.bo":
 				action = new BoardWriteAction();
 				break;
-			case "/BoardAddAction.bo":
+			case "/BoardAdd.bo":
 				action = new BoardAddAction();
+				break;
+			case "/BoardDetail.bo":
+				action = new BoardDetailAction();
+				break;
+			case "/BoardModify.bo":
+				action = new BoardModifyAction();
+				break;
+			case "/BoardModifyProcess.bo":
+				action = new BoardModifyProcessAction();
+				break;
+			case "/BoardReply.bo":
+				action = new BoardReply();
 				break;
 		} //switch (command)
 		

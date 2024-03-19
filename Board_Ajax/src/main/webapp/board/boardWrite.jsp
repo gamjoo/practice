@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
   <jsp:include page="header.jsp" />
@@ -13,7 +14,7 @@
 </head>
 <body>
   <div class="container">
-    <form action="BoardAddAction.bo" method="post" enctype="multipart/form-data"
+    <form action="BoardAdd.bo" method="post" enctype="multipart/form-data"
     	  name="boardform">
       <h1>MVC 게시판-write 페이지</h1>
       <div class="form-group">
