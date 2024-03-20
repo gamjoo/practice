@@ -21,6 +21,12 @@ public class BoardDetailAction implements Action {
 		//글번호 파라미터 값을 num변수에 저장한다.
 		int num=Integer.parseInt(request.getParameter("num"));
 		
+		//특정 주소로부터의 이동을 확인하는 데 사용할 수 있는 정보는 요청 헤더인 "Referer"에 있다.
+		String referer = request.getHeader("Referer");
+		if (referer != null && referer.contains("BoardList.bo")) {
+			boarddao.setReadCountUpdate(num);
+		}
+		
 		//글의 내용을 DAO에서 읽은 후 얻은 결과를 boarddata 객체에 저장한다.
 		boarddata = boarddao.getDetail(num);
 		

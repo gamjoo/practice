@@ -55,13 +55,22 @@ public class BoardFrontController extends HttpServlet {
 				action = new BoardDetailAction();
 				break;
 			case "/BoardModify.bo":
-				action = new BoardModifyAction();
+				action = new BoardModify();
 				break;
 			case "/BoardModifyProcess.bo":
 				action = new BoardModifyProcessAction();
 				break;
 			case "/BoardReply.bo":
 				action = new BoardReply();
+				break;
+			case "/BoardReplyProcess.bo":
+				action = new BoardReplyProcessAction();
+				break;
+			case "/BoardDelete.bo":
+				action = new BoardDeleteAction();
+				break;
+			case "/BoardFileDown.bo":
+				action = new BoardFileDownAction();
 				break;
 		} //switch (command)
 		

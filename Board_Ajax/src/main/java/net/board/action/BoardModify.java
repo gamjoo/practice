@@ -10,7 +10,7 @@ import net.board.db.BoardDAO;
 import net.common.action.Action;
 import net.common.action.ActionForward;
 
-public class BoardModifyAction implements Action {
+public class BoardModify implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
