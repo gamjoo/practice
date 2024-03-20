@@ -4,14 +4,15 @@
 <head>
 <title>회원관리 시스템 회원정보 수정페이지</title>
 <link href="${pageContext.request.contextPath}/css/join.css" type="text/css" rel="stylesheet">
+<jsp:include page="../board/header.jsp"/>
+<script src="js/updateform.js"></script>
 <style>
  h3 {text-align:center;color:#1a92b9;}
  input[type=file] {display:none;}
 </style>
 </head>
 <body>
-  <jsp:include page="../board/header.jsp"/>
-  <form name="joinform" action="updateProcess.net" method="post" enctype="multipart/form-data">
+  <form name="updateform" action="updateProcess.net" method="post" enctype="multipart/form-data">
     <h3>회원 정보 수정</h3>
     <hr>
     <b>아이디</b>

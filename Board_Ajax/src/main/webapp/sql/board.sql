@@ -35,7 +35,7 @@ set board_subject = '오늘도 행복하세요'
 where board_num = 1;
 
 -- 1.comm 테이블에서 comment_board_num별 갯수글 구한다.
-select COMMENT_BOARD_NUM, COUNT(comment_board_num) CNT
+select COMMENT_BOARD_NUM, COUNT(*) CNT
 from comm, board
 group by comment_board_num;
 

@@ -115,4 +115,32 @@ public class MemberDAO {
 		}
 		return m;
 	}
+
+	public boolean memberupdate(Member member) {
+		String sql = "update member "
+				   + "set name=?, age=?, gender=?, email=?, memberfile=? "
+				   + "where id=?";
+		try (Connection con = ds.getConnection();
+			 PreparedStatement pstmt = con.prepareStatement(sql);) {
+			System.out.println("들어가는 정보 : " + member.getMemberfile());
+			System.out.println("들어가는 정보 : " + member.getId());
+			pstmt.setString(1, member.getName());
+			pstmt.setInt(2, member.getAge());
+			pstmt.setString(3, member.getGender());
+			pstmt.setString(4, member.getEmail());
+			pstmt.setString(5, member.getMemberfile());
+			pstmt.setString(6, member.getId());
+			int result = pstmt.executeUpdate();
+			System.out.println(sql);
+			if (result == 1) {
+				System.out.println("회원정보 수정 성공");
+				return true;
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			System.out.println("memberupdate() 에러 : " + ex);
+		}
+		
+		return false;
+	}//memberupdate() 메소드 end
 }
