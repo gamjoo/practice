@@ -19,3 +19,18 @@ create sequence com_seq;
 delete comm;
 
 select * from comm;
+
+
+select m.memberfile, c.id, c.content, c.reg_date
+from member m, COMM c
+where m.id = c.id
+
+--1.member에 있는 memberfile이 필요하다.
+--2.order by comment_re_ref asc, comment_re_seq asc (등록순)
+--3.order by comment_re_ref desc, comment_re_seq asc (최신순)
+select comm.*, member.memberfile
+from comm inner join member
+on comm.id=member.id
+where comment_board_num = ? --받아올 정보
+order by comment_re_ref asc,
+		 comment_re_seq asc;

@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -115,7 +117,7 @@ public class MemberDAO {
 		}
 		return m;
 	}
-
+/* 내가 작성한 memberupdate
 	public boolean memberupdate(Member member) {
 		String sql = "update member "
 				   + "set name=?, age=?, gender=?, email=?, memberfile=? "
@@ -143,4 +145,181 @@ public class MemberDAO {
 		
 		return false;
 	}//memberupdate() 메소드 end
-}
+*/
+	public int update(Member m) {
+		int result = 0;
+		String sql = "update member "
+				   + "set name=?, age=?, gender=?, email=?, memberfile=? "
+				   + "where id=?";
+		try (Connection con = ds.getConnection();
+			 PreparedStatement pstmt = con.prepareStatement(sql);) {
+			
+			pstmt.setString(1, m.getName());
+			pstmt.setInt(2, m.getAge());
+			pstmt.setString(3, m.getGender());
+			pstmt.setString(4, m.getEmail());
+			pstmt.setString(5, m.getMemberfile());
+			pstmt.setString(6, m.getId());
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}//update() end
+
+	public int getListCount() {
+		String sql = "select count(*) "
+				   + "from member "
+				   + "where id != 'admin' ";
+		int x=0;
+		try (Connection con = ds.getConnection();
+			 PreparedStatement pstmt = con.prepareStatement(sql);) {
+			
+			try (ResultSet rs = pstmt.executeQuery()) {
+				if (rs.next()) {
+					x = rs.getInt(1);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			System.out.println("getListcount() 에러 : "+ex);
+		}
+		return x;
+	}//getListCount() end
+
+	public List<Member> getList(int page, int limit) {
+/*
+		String sql = "select rownum, b.* "
+				   + "from (select * "
+				   + "	    from member "
+				   + "      ) b "
+				   + "where rownum >= ? and rownum <= ?";
+*/
+		String sql = "select * "
+				   + "from (select rownum rnum, b.* "
+				   + "     from (select * from member"
+				   + "           where id != 'admin'"
+				   + "			 order by id) b "
+				   + "     where rownum <= ?) "
+				   + "where rnum >= ? and rnum <= ?";
+		List<Member> list = new ArrayList<Member>();
+		try (Connection con = ds.getConnection();
+			 PreparedStatement pstmt = con.prepareStatement(sql);) {
+				int startrow = (page - 1) * limit + 1;
+				int endrow = startrow + limit - 1;
+				pstmt.setInt(1, endrow);
+				pstmt.setInt(2, startrow);
+				pstmt.setInt(3, endrow);
+				
+				try (ResultSet rs = pstmt.executeQuery()) {
+					while (rs.next()) {
+						Member m = new Member();
+						m.setId(rs.getString("id"));
+						m.setPassword(rs.getString("password"));
+						m.setName(rs.getString("name"));
+						m.setAge(rs.getInt("age"));
+						m.setGender(rs.getString("gender"));
+						m.setEmail(rs.getString("email"));
+						m.setMemberfile(rs.getString("memberfile"));
+						
+						list.add(m);
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			System.out.println("getBoardList() 에러 : " + ex);
+		}
+		return list;
+	}// getList() 메소드 end
+
+	public int getListCount(String field, String value) {
+
+		int x=0;
+		String sql = "select count(*) from member "
+				   + "where id != 'admin' "
+				   + "and " + field + " like ?"; //and name like '%홍길동%'
+		System.out.println(sql);
+/*
+		String sql = "select count(*) "
+				   + "from member "
+				   + "where id != 'admin' "
+				   + "and " + field + " like '%" + value + "%'";
+*/
+		try (Connection con = ds.getConnection();
+			 PreparedStatement pstmt = con.prepareStatement(sql);) {
+			
+			pstmt.setString(1, "%"+value+"%"); //'%a%'
+			try (ResultSet rs = pstmt.executeQuery()) {
+				if (rs.next()) {
+					x = rs.getInt(1);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			System.out.println("getListcount() 에러 : "+ex);
+		}
+		return x;
+	} //getListcount() end
+
+	public List<Member> getList(String field, String value, int page, int limit) {
+		String sql = "select * "
+				   + "from (select rownum rnum, b.* "
+				   + "     from (select * from member"
+				   + "           where id != 'admin'"
+				   + "			 and " + field + " like ?"
+				   + "			 order by id) b "
+				   + "     where rownum <= ?) "
+				   + "where rnum >= ? and rnum <= ?";
+		List<Member> list = new ArrayList<Member>();
+		try (Connection con = ds.getConnection();
+			 PreparedStatement pstmt = con.prepareStatement(sql);) {
+				int startrow = (page - 1) * limit + 1;
+				int endrow = startrow + limit - 1;
+				pstmt.setString(1, "%"+value+"%");
+				pstmt.setInt(2, endrow);
+				pstmt.setInt(3, startrow);
+				pstmt.setInt(4, endrow);
+				
+				try (ResultSet rs = pstmt.executeQuery()) {
+					while (rs.next()) {
+						Member m = new Member();
+						m.setId(rs.getString("id"));
+						m.setPassword(rs.getString("password"));
+						m.setName(rs.getString("name"));
+						m.setAge(rs.getInt("age"));
+						m.setGender(rs.getString("gender"));
+						m.setEmail(rs.getString("email"));
+						m.setMemberfile(rs.getString("memberfile"));
+						
+						list.add(m);
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			System.out.println("getBoardList() 에러 : " + ex);
+		}
+		return list;
+	}
+
+	public int delete(String id) {
+		String sql = "delete from member where id = ?";
+		int result=0;
+		
+		try (Connection con = ds.getConnection();
+			 PreparedStatement pstmt = con.prepareStatement(sql);) {
+			pstmt.setString(1, id);
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}// detele() 메소드 end
+}//MemberDAO 클래스 end

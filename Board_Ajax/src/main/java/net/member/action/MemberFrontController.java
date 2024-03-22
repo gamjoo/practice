@@ -64,7 +64,16 @@ public class MemberFrontController extends HttpServlet {
 				action = new MemberUpdateAction();
 				break;
 			case "/updateProcess.net":
-				action = new UpdateProcessAction();
+				action = new MemberUpdateProcessAction();
+				break;
+			case "/memberList.net":
+				action = new MemberSearchAction();
+				break;
+			case "/memberInfo.net":
+				action = new MemberInfoAction();
+				break;
+			case "/memberDelete.net":
+				action = new MemberDeleteAction();
 				break;
 				
 		} //switch (command)

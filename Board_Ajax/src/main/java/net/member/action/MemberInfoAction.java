@@ -5,27 +5,34 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import net.common.action.Action;
 import net.common.action.ActionForward;
 import net.member.db.Member;
 import net.member.db.MemberDAO;
 
-public class MemberUpdateAction implements Action {
+public class MemberInfoAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("id");
-		
-		MemberDAO mdao = new MemberDAO();
-		Member m = mdao.member_info(id);
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("member/updateForm.jsp");
+		
+		MemberDAO mdao = new MemberDAO();
+		String id = request.getParameter("id");
+		Member m = mdao.member_info(id);
+		
+		if(m==null) {
+			forward.setPath("error/error.jsp");
+			request.setAttribute("message", "아이디에 해당하는 정보가 없습니다.");
+			return forward;
+		} else {
+			forward.setPath("member/memberInfo.jsp");
+			request.setAttribute("memberinfo", m);
+		}
+		
 		forward.setRedirect(false);
-		request.setAttribute("memberinfo", m);
 		return forward;
 	}
+
 }

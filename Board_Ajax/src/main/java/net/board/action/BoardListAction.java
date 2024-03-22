@@ -113,7 +113,7 @@ public class BoardListAction implements Action {
 			forward.setPath("board/boardList.jsp");
 			return forward; //BoardFrontController.java로 리턴된다.
 		} else {
-			System.out.println("state=ajax");
+			System.out.println("state==ajax");
 			
 			//위에서 request로 담았던 것을 JsonObejct에 담는다.
 			JsonObject object = new JsonObject();

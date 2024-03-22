@@ -14,7 +14,7 @@ import net.common.action.ActionForward;
 import net.member.db.Member;
 import net.member.db.MemberDAO;
 
-public class UpdateProcessAction implements Action {
+public class Me_UpdateProcessAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
