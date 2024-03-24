@@ -75,7 +75,8 @@ public class CommentDAO {
 		if(state==2) { //최신순
 			sort="desc"; 
 		}
-		String sql = "select * from comm join member "
+		String sql = "select * "
+				   + "from comm join member "
 				   + "on comm.id = member.id "
 				   + "where comment_board_num = ? "
 				   + "order by comment_re_ref " + sort + ", "
@@ -96,7 +97,7 @@ public class CommentDAO {
 					object.addProperty("comment_re_lev", rs.getInt(5));
 					object.addProperty("comment_re_seq", rs.getInt(6));
 					object.addProperty("comment_re_ref", rs.getInt(7));
-					object.addProperty("memberfile", rs.getString(8));
+					object.addProperty("memberfile", rs.getString("memberfile"));
 					array.add(object);
 				}
 			}

@@ -9,6 +9,7 @@ function getList(state){//현재 선택한 댓글 정렬방식을 저장합니�
 		data:{"comment_board_num":$("#comment_board_num").val(), state:state},
 		dataType:"json",
 		success:function(rdata) {
+//CommentListAction.java 에서 JsonObject를 return 받은 상태
 			$('#count').text(rdata.listcount).css('font-family','arial,sans-serif')
 			let red1='red';
 			let red2='red';
@@ -44,49 +45,49 @@ function getList(state){//현재 선택한 댓글 정렬방식을 저장합니�
 					src='memberupload/'+profile;
 				}
 				
-				output +=
-	  + '<li id="' + this.num + '" class="comment-list-item' + comment_reply + '">'   
-	  + '   <div class="comment-nick-area">'    
-	  + '      <img src="'+ src +'" alt="프로필 사진" width="36" height="36">'    
-	  + '      <div class="comment-box">'      
-	  + '        <div class="comment-nick-box">'            
-	  + '            <div class="comment-nick-info">'               
-	  + '               <div class="comment-nickname">' + this.id + '</div>'
-	  + '            </div>'    
-	  + '         </div>' 
-	  + '       </div>'    
-	  + '       <div class="comment-text-box">'       
-	  + '          <p class="comment-text-view">'         
-	  + '             <span class="text-comment">' + this.content + '</span>'       
-	  + '          </p>'    
-	  + '       </div>'    
-	  + '       <div class="comment-info-box">'      
-	  + '           <span class="comment-info-date">' + this.reg_date + '</span>';
+				output += '<li id="' + this.num + '" class="comment-list-item' + comment_reply + '">'   
+	 				   + '   <div class="comment-nick-area">'    
+	  				   + '      <img src="'+ src +'" alt="프로필 사진" width="36" height="36">'    
+	 				   + '      <div class="comment-box">'      
+	  				   + '        <div class="comment-nick-box">'            
+	  				   + '            <div class="comment-nick-info">'               
+	  				   + '               <div class="comment-nickname">' + this.id + '</div>'
+	  				   + '            </div>' //comment-nick-info    
+	  				   + '        </div>' //comment-nick-box 
+	  				   + '      </div>' //comment-box    
+	  				   + '      <div class="comment-text-box">'       
+	  				   + '        <p class="comment-text-view">'         
+	  				   + '          <span class="text-comment">' + this.content + '</span>'       
+	 				   + '        </p>'    
+	  				   + '      </div>' //comment-text-box 
+	  				   + '      <div class="comment-info-box">'      
+	  				   + '        <span class="comment-info-date">' + this.reg_date + '</span>';
 	  if(lev<2) {
 		  output += '<a href="javascript:replyform(' + this.num + ','
 		         + lev + ',' + this.comment_re_seq + ','
 		         + this.comment_re_ref + ')" class="comment-info-button">답글쓰기</a>'
 	  }
-	  output += '</div>' //comment-info-box;  
-	  + '       <div class="comment-tool">'    
-	  + '          <div title="더보기" class="comment-tool-button">'       
-	  + '           <div>&#46;&#46;&#46;</div>'    
-	  + '         </div>'    
-	  + '          <div id="comment-list-item-layer' + this.num + '"class="LayerMore">'     
-	  + '           <ul class="layer-list">'      
-	  + '              <li class="layer-item">'
-	  + '                <a href="javascript:updateForm(' + this.num + ')"' 
-	  + '                   class="layer-button">수정</a>&nbsp;&nbsp;'       
-	  + '                <a href="javascript:del(' + this.num + ')"'
-	  + '                   class="layer-button">삭제</a>'
-	  + '             </li>'
-	  + '           </ul>'    
-	  + '          </div>'   
-	  + '        </div>'
-	  + '     </div>'
+	  output += '</div>' //comment-info-box;
 	  
-	  output += '</div>'
-	  		 + '</li>'
+	  if($("#loginid").val()==this.id){
+		output += '<div class="comment-tool">'    
+	  		   + '   <div title="더보기" class="comment-tool-button">'       
+	  		   + '     <div>&#46;&#46;&#46;</div>'    
+	  		   + '   </div>' //div title="더보기"    
+	  		   + '   <div id="comment-list-item-layer' + this.num + '"class="LayerMore">'     
+	 		   + '     <ul class="layer-list">'      
+	  		   + '       <li class="layer-item">'
+	  		   + '         <a href="javascript:updateForm(' + this.num + ')"' 
+	  		   + '            class="layer-button">수정</a>&nbsp;&nbsp;'       
+	  		   + '         <a href="javascript:del(' + this.num + ')"'
+	  		   + '                   class="layer-button">삭제</a>'
+	  		   + '       </li>'
+	  		   + '     </ul>'    
+	  		   + '   </div>' //LayerMore   
+	  		   + ' </div>' //comment-tool
+	  }
+	  output += '</div>' //comment-nick-area
+	  		 + '</li>' //li.comment-list-item
 	  
 	  })//each end
 	  

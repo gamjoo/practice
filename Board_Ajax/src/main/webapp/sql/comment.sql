@@ -34,3 +34,10 @@ on comm.id=member.id
 where comment_board_num = ? --받아올 정보
 order by comment_re_ref asc,
 		 comment_re_seq asc;
+		 
+
+select *
+from comm join member
+on comm.id = member.id
+where comment_board_num = 12
+order by comment_re_ref asc, comment_re_seq asc;

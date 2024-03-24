@@ -108,8 +108,7 @@
 				</ul>
 			</div>
 		</div><%-- comment-head end--%>
-		<ul class="comment-list">
-		</ul>
+		<ul class="comment-list"></ul>
 		<div class="comment-write">
 			<div class="comment-write-area">
 				<b class="comment-write-area-name" >${id}</b> <span
