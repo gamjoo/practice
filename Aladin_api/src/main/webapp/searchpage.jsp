@@ -32,12 +32,12 @@
 			$(rdata.item).each(function() {
 			let subject = rdata.item.at(i)
 		
-			$("div").append("<h1>책 제목은 '"+subject.title+"' 입니다.<h1>")
+			$("div").append("<h1>책 제목 : '"+subject.title+"'</h1>")
 			$("div").append("<img src='"+subject.cover+"'>")
-			$("div").append("<h3>지은이는 '"+subject.author+"' 입니다.</h3>")
-			$("div").append("<h3>카테고리분류는 '"+subject.categoryName+"' 입니다.</h3>")
-			$("div").append("<h3>개요는 '"+subject.description+"' 입니다.</h3>")
-			$("div").append("<h3>출간일은 '"+subject.pubDate+"' 입니다.</h3>")
+			$("div").append("<h3>지은이 : '"+subject.author+"'</h3>")
+			$("div").append("<h3>카테고리분류 : '"+subject.categoryName+"'</h3>")
+			$("div").append("<h3>개요 : '"+subject.description+"'</h3>")
+			$("div").append("<h3>출간일 : '"+subject.pubDate+"'</h3>")
 					
 			i++;
 			})//each end
