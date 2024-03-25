@@ -104,11 +104,10 @@
 				댓글 <sup id="count"></sup><%--superscript(윗첨자) --%>
 			</h3>
 			<div class="comment-order">
-				<ul class="comment-order-list">
-				</ul>
+				<ul class="comment-order-list"></ul> <%-- js를 통해 데이터가 들어간다 --%>
 			</div>
 		</div><%-- comment-head end--%>
-		<ul class="comment-list"></ul>
+		<ul class="comment-list"></ul> <%-- js를 통해 데이터가 들어간다 --%>
 		<div class="comment-write">
 			<div class="comment-write-area">
 				<b class="comment-write-area-name" >${id}</b> <span

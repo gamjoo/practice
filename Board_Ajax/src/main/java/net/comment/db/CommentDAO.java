@@ -75,7 +75,7 @@ public class CommentDAO {
 		if(state==2) { //최신순
 			sort="desc"; 
 		}
-		String sql = "select * "
+		String sql = "select comm.*, member.memberfile "
 				   + "from comm join member "
 				   + "on comm.id = member.id "
 				   + "where comment_board_num = ? "
@@ -94,9 +94,10 @@ public class CommentDAO {
 					object.addProperty("id", rs.getString(2));
 					object.addProperty("content", rs.getString(3));
 					object.addProperty("reg_date", rs.getString(4));
-					object.addProperty("comment_re_lev", rs.getInt(5));
-					object.addProperty("comment_re_seq", rs.getInt(6));
-					object.addProperty("comment_re_ref", rs.getInt(7));
+					object.addProperty("comment_board_num", rs.getInt(5));
+					object.addProperty("comment_re_lev", rs.getInt(6));
+					object.addProperty("comment_re_seq", rs.getInt(7));
+					object.addProperty("comment_re_ref", rs.getInt(8));
 					object.addProperty("memberfile", rs.getString("memberfile"));
 					array.add(object);
 				}
@@ -106,5 +107,103 @@ public class CommentDAO {
 		}
 		return array;
 	} //getCommentList()메소드 end
+
+	public int commentsUpdate(Comment co) {
+		int result = 0;
+		String sql = "update comm set content = ? "
+				   + "where num = ? ";
+		
+		try (Connection con = ds.getConnection();
+				 PreparedStatement pstmt = con.prepareStatement(sql);) {
+			pstmt.setString(1, co.getContent());
+			pstmt.setInt(2, co.getNum());
+			
+			result = pstmt.executeUpdate();
+			if (result == 1)
+				System.out.println("댓글이 업데이트 되었습니다.");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}//commentsUpdate() end
+
+	public int commentsReply(Comment c) {
+		int result = 0;
+		
+		try (Connection con = ds.getConnection();) {
+			con.setAutoCommit(false);
+			
+			try {
+				reply_update(con, c.getComment_re_ref(), c.getComment_re_seq());
+				result=reply_insert(con,c);
+				con.commit();
+			}
+			
+			catch (Exception e) {
+				e.printStackTrace(); //오류 확인용
+				if (con != null) {
+					try {
+						con.rollback(); //rollback 한다.
+					} catch (SQLException ex) {
+						ex.printStackTrace();
+					}
+				}
+			}
+			con.setAutoCommit(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+
+	private void reply_update(Connection con, int re_ref, int re_seq) throws SQLException {
+	//호출한 곳에서 오류 발생시 rollback 할 수 있도록 에러를 던짐
+		
+		String update_sql = "update comm "
+						  + "set comment_re_seq = comment_re_seq + 1 "
+						  + "where comment_re_ref = ? "
+						  + "and comment_re_seq> ? ";
+		try(PreparedStatement pstmt = con.prepareStatement(update_sql);) {
+			pstmt.setInt(1, re_ref);
+			pstmt.setInt(2, re_seq);
+			pstmt.executeUpdate();
+		}
+		
+	}
+
+	private int reply_insert(Connection con, Comment c) throws SQLException {
+		int result=0;
+		String sql = "insert into comm "
+				   + "values(com_seq.nextval, ?, ?, sysdate, ?, ?, ?, ?)";
+		try(PreparedStatement pstmt = con.prepareStatement(sql);) {
+			pstmt.setString(1, c.getId());
+			pstmt.setString(2, c.getContent());
+			pstmt.setInt(3, c.getComment_board_num());
+			pstmt.setInt(4, c.getComment_re_lev()+1);
+			pstmt.setInt(5, c.getComment_re_seq()+1);
+			pstmt.setInt(6, c.getComment_re_ref());
+			result = pstmt.executeUpdate();
+		}
+		
+		return result;
+	}
+
+	public int commentsDelete(int num) {
+		int result = 0;
+		
+		String sql = "delete comm where num = ? ";
+		try (Connection con = ds.getConnection();
+				 PreparedStatement pstmt = con.prepareStatement(sql);) {
+			
+			pstmt.setInt(1, num);
+			result = pstmt.executeUpdate();
+			if (result == 1)
+				System.out.println("데이터 삭제 되었습니다.");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}// commentsDelte() 메소드 end
 
 }
