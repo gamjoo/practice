@@ -27,6 +27,7 @@
 				    "output" : "JS",
 				    "Version" : "20131101"},
 			dataType : "json",
+			cache : false,
 			success : function(rdata) {
 			let i = 0;
 			$(rdata.item).each(function() {
@@ -34,11 +35,10 @@
 		
 			$("div").append("<h1>책 제목 : '"+subject.title+"'</h1>")
 			$("div").append("<img src='"+subject.cover+"'>")
-			$("div").append("<h3>지은이 : '"+subject.author+"'</h3>")
-			$("div").append("<h3>카테고리분류 : '"+subject.categoryName+"'</h3>")
-			$("div").append("<h3>개요 : '"+subject.description+"'</h3>")
-			$("div").append("<h3>출간일 : '"+subject.pubDate+"'</h3>")
-					
+			$("div").append("<h4>지은이 : '"+subject.author+"'</h3>")
+			$("div").append("<h4>카테고리분류 : '"+subject.categoryName+"'</h3>")
+			$("div").append("<h4>개요 : '"+subject.description+"'</h3>")
+			$("div").append("<h4>출간일 : '"+subject.pubDate+"'</h4><br><br>")
 			i++;
 			})//each end
 			
