@@ -21,7 +21,7 @@
 				    "QueryType" : "Title",
 				    "SearchTarget" : "Book",
 				    "start" : "1",
-				    "MaxResults" : "20",
+				    "MaxResults" : "5",
 				    "Sort" : "Title",
 				    "Cover" : "Big",
 				    "output" : "JS",
@@ -29,6 +29,7 @@
 			dataType : "json",
 			cache : false,
 			success : function(rdata) {
+				
 			let i = 0;
 			$(rdata.item).each(function() {
 			let subject = rdata.item.at(i)

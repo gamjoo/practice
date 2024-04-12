@@ -57,6 +57,7 @@
               <a href="#">
                 <button class="btn btn-danger" data-toggle="modal"
                 	    data-target="#myModal">삭제</button>
+                	    
               </a>
             </c:if>
             <a href="BoardList.bo">

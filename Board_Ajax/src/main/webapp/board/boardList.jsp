@@ -4,7 +4,7 @@
 <head>
   <jsp:include page="header.jsp" />
 <style>
- select.form-control {
+ select .form-control {
  	width:auto;
  	margin-bottom:2em;
  	display:inline-block

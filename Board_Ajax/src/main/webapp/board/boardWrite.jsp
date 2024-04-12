@@ -8,7 +8,7 @@
  h1 {font-size:1.5rem; text-align:center; color:#1a92b9}
  .container{width:60%}
  label{font-weight:bold}
- #upfile{display:none}
+ input[type=file]{display:none}
  img{width:20px;}  
 </style>
 </head>
