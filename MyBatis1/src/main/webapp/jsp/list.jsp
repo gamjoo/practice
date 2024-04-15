@@ -24,9 +24,9 @@
       <tr>
         <td>${a.id}</td>
         <td>${a.password}</td>
-        <td><button type="button" class="btn btn-info btn-sm" data-id="${member.id}">수정</button></td>
+        <td><button type="button" class="btn btn-info btn-sm" data-id="${a.id}">수정</button></td>
         <c:if test="${a.id != 'admin'}">
-          <td><button type="button" class="btn btn-danger btn-sm" data-id="${member.id}">삭제</button></td>
+          <td><button type="button" class="btn btn-danger btn-sm" data-id="${a.id}">삭제</button></td>
         </c:if>
         <c:if test="${a.id == 'admin'}">
           <td></td>

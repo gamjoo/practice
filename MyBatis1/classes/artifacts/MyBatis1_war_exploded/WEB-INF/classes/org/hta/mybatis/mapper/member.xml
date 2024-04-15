@@ -23,15 +23,4 @@
     order by id
   </select>
   
-  <select id="update" parameterType="org.hta.member.domain.Member">
-    update member22
-    set password = #{password}
-    where id = #{id}
-  </select>
-  
-  <select id="delete" parameterType="String">
-    delete from member22
-    where id = #{inputid}
-  </select>
-  
 </mapper>

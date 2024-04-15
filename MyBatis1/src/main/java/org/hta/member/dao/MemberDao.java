@@ -59,12 +59,48 @@ public class MemberDao {
 
 	public List<Member> list() {
 		List<Member> list = null;
-		try(SqlSession session = getSession()) {
-			list = session.selectList("list"); //xml이 단 1개 존재, id도 모두 중복되지 않게 다르게 작성하면서 중복 여지가 없다.
+		try (SqlSession session = getSession()) {
+			//xml(sqlmapper)이 단 1개 존재.
+			//그 xml파일 안에서도 id가 모두 중복되지 않게 다르게 작성했기 때문에 중복 여지가 없다.
+			//namespace 생략하고 쿼리문 id만 입력해도 된다.
+			list = session.selectList("list");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return list;
+	}
+
+	public Member select(String id) {
+		
+		Member dbmember = new Member();
+		
+		try (SqlSession session = getSession()) {
+			dbmember = (Member) session.selectOne("select", id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return dbmember;
+	}
+	
+	public int delete(String id) {
+		int result = 0;
+		try(SqlSession session = getSession()) {
+			result = session.delete("delete", id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public int update(Member member) {
+		int result = 0;
+		try (SqlSession session = getSession()) {
+			result = session.update("update", member);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 }
