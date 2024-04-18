@@ -4,9 +4,8 @@
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-
 	<typeAliases>
-		<typeAlias type="org.hta.emp.domain.Emp" alias="emp"/>
+		<typeAlias type="org.hta.member.domain.Member" alias="Member"/>
 	</typeAliases>
 	
   <environments default="development">
@@ -20,9 +19,7 @@
       </dataSource>
     </environment>
   </environments>
-  
   <mappers>
-    <mapper resource="org/hta/mybatis/mapper/emp.xml"/>
+    <mapper resource="org/hta/mybatis/mapper/member.xml"/>
   </mappers>
-  
 </configuration>
